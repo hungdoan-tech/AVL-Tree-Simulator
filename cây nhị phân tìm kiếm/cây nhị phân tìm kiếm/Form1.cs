@@ -21,13 +21,13 @@ namespace cây_nhị_phân_tìm_kiếm
         private void timer2_Tick(object sender, EventArgs e)
         {
             if (label1.Top < this.Height - 100)
-                label1.Top += +6;
+                label1.Top += +4;
         }
 
         private void timer1_Tick(object sender, EventArgs e)
         {
             if (label1.Left < this.Width - 100)
-                label1.Left += 5;
+                label1.Left += 4;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -36,6 +36,8 @@ namespace cây_nhị_phân_tìm_kiếm
             label1.Location = new Point(x1, y1);
             label1.Tag = box1.Text;
             label1.Text = box1.Text;
+            timer1.Start();
+            timer2.Start();
         }
 
         private void Form1_Load(object sender, EventArgs e)
