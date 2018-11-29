@@ -14,10 +14,15 @@ namespace Cay_Nhi_Phan
 	public partial class Form1 : Form
 	{
 		const int PICTUREBOX_WIDE = 1024;
-		const int RET_OK = 0;
-		const int EQUAL = 0;
-		const int LEFT = -1;
-		const int RIGHT = 1;
+		const int EQUAL = 0;		// Can bang
+		const int LEFT = -1;		// Trai
+		const int RIGHT = 1;		// Phai
+
+		int Total_Node = 0; // tong so node
+		int Total_Leaf_Node = 0; // tong so leaf node
+		int Total_Intermediate_Node = 0; // tong so node trung gian
+		int The_Height_Tree = 0; // chieu cao cay
+		
 		public class_node Root;
 		Bitmap bitmap;
 		Graphics g;
@@ -637,7 +642,7 @@ namespace Cay_Nhi_Phan
 					}
 				}
 			}
-			return 0;
+			return -2;
 		}
 
 		//Tim node the mang
@@ -745,7 +750,65 @@ namespace Cay_Nhi_Phan
 			}
 			else return 0;
 		}
-
+		private int High(class_node node)
+		{
+			if (node==null)
+			{
+				return 0;
+			}
+			int a = High(node.left);
+			int b = High(node.right); 
+			if (a > b)
+			{
+				return (a + 1);
+			}
+			return (b + 1);
+		}
+		private void TotalLeafNode(class_node node)
+		{
+			if (node != null)
+			{
+				if (node.left == null && node.right == null)
+				{
+					Total_Leaf_Node++;
+				}
+				TotalLeafNode(node.left);
+				TotalLeafNode(node.right);
+			}
+		}
+		private void TotalNode(class_node node)
+		{
+			if (node != null)
+			{
+				Total_Node++;
+				TotalNode(node.left);
+				TotalNode(node.right);
+			}
+		}
+		private void XacDinhSoPhanTu()
+		{
+			Total_Node = 0;
+			TotalNode(Root);
+			Total_Node_TextBox.Text = Total_Node.ToString();
+			Total_Leaf_Node = 0;
+			TotalLeafNode(Root);
+			Total_Leaf_Node_TextBox.Text = Total_Leaf_Node.ToString();
+			if (Total_Node == 0 || Total_Node == 1)
+			{
+				Total_Intermediate_Node = 0;
+				Total_Intermediate_Node_TextBox.Text = Total_Intermediate_Node.ToString();
+			}
+			else
+			{
+				Total_Intermediate_Node_TextBox.Text = (Total_Node - Total_Leaf_Node - 1).ToString();
+			}
+			The_Height_Tree = High(Root) - 1;
+			if (The_Height_Tree == -1)
+			{
+				The_Height_Tree = 0;
+			}
+			The_Height_Tree_TextBox.Text = The_Height_Tree.ToString();
+		}
 		private void pb_Main_MouseMove(object sender, MouseEventArgs e)
 		{
 
@@ -753,9 +816,10 @@ namespace Cay_Nhi_Phan
 
 		private void Del_Tree_Button_Click(object sender, EventArgs e)
 		{
-			Root = null;
-			g.Clear(Color.White);
+			InItTree(ref Root);
+			g.Clear(Color.White);		
 			pb_Main.Image = bitmap;
+			XacDinhSoPhanTu();
 			MessageBox.Show(" Da xoa thanh cong cay! ");
 		}
 
@@ -788,33 +852,44 @@ namespace Cay_Nhi_Phan
 				{
 					int Temp = Convert.ToInt32(Input_TextBox.Text);
 					way.Clear();
-					DelNode(ref Root, Temp);
+					int StatusDelNode = DelNode(ref Root, Temp);
+					if (StatusDelNode == 0)
+					{
+						g.Clear(Color.White);
+						Xd_ViTri(ref Root);
+						VeCay_normal(Root);
+					}
+					else
+					{
+						Xd_ViTriCu(ref Root);
+						Xd_ViTriMoi(ref Root);
+						for (int i = 0; i < 50; i++)
+						{
+							DiChuyenCay(ref Root);
+							g.Clear(Color.White);
+							VeCay_normal(Root);
+							Thread.Sleep(2);
+							Application.DoEvents();
+						}
+						g.Clear(Color.White);
+						Xd_ViTri(ref Root);
+						VeCay_normal(Root);
+						XacDinhSoPhanTu();
+						Input_TextBox.Clear();
+					}
 				}
 				catch
 				{
 					MessageBox.Show(" Gia tri nhap khong dung");
-				}
-				Xd_ViTriCu(ref Root);
-				Xd_ViTriMoi(ref Root);
-				for (int i = 0; i < 50; i++)
-				{
-					DiChuyenCay(ref Root);
-					g.Clear(Color.White);
-					VeCay_normal(Root);
-					Thread.Sleep(2);
-					Application.DoEvents();
-				}
-				g.Clear(Color.White);
-				Xd_ViTri(ref Root);
-				VeCay_normal(Root);
-				Input_TextBox.Clear();
+				}	
 			}
 			else
 			{
 				MessageBox.Show(" Ban chua nhap gia tri ");
 			}
 		}
-		private void txtInput_KeyDown(object sender, KeyEventArgs e)
+
+		private void Input_TextBox_KeyDown(object sender, KeyEventArgs e)
 		{
 			if (e.KeyCode == Keys.Enter && Input_TextBox.Text.Length > 0)
 			{
@@ -847,10 +922,11 @@ namespace Cay_Nhi_Phan
 				g.Clear(Color.White);
 				Xd_ViTri(ref Root);
 				VeCay_normal(Root);
+				XacDinhSoPhanTu();
 				Input_TextBox.Clear();
 			}
 		}
-
+	
 		private void Random_Button_Click(object sender, EventArgs e)
 		{
 			int N_Tam = 0;
@@ -880,12 +956,15 @@ namespace Cay_Nhi_Phan
 					g.Clear(Color.White);
 					Xd_ViTri(ref Root);
 					VeCay_normal(Root);
+					XacDinhSoPhanTu();
 					Input_TextBox.Clear();
 				}
 			}
 		}
-
-	
+		private void NLR_Button_Click(object sender, EventArgs e)
+		{
+			
+		}
 	}
 }
 
