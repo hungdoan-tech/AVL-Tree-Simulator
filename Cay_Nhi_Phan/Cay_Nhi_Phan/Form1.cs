@@ -32,18 +32,18 @@ namespace Cay_Nhi_Phan
 		}
 		public void VeCanh(PointF a, PointF b)
 		{
-			g.DrawLine(new Pen(Color.GreenYellow, 2), a.X+20, a.Y+39, b.X+20, b.Y);
+			g.DrawLine(new Pen(Color.GreenYellow, 2), a.X + 20, a.Y + 39, b.X + 20, b.Y);
 			pb_Main.Image = bitmap;
 		}
 		public void DrawNode(class_node A)
 		{
 			g.DrawImage(Cay_Nhi_Phan.Properties.Resources.ellip_blue, A.vitri.X, A.vitri.Y);
 			if (A.number < 10)
-			{	
+			{
 				g.DrawString(A.number.ToString(), new Font(FontFamily.GenericSerif, 15, FontStyle.Bold), new SolidBrush(Color.White), new PointF(A.vitri.X + 11, A.vitri.Y + 8f));
 			}
 			else
-			{		
+			{
 				g.DrawString(A.number.ToString(), new Font(FontFamily.GenericSerif, 15, FontStyle.Bold), new SolidBrush(Color.White), new PointF(A.vitri.X + 7, A.vitri.Y + 8f));
 			}
 			pb_Main.Image = bitmap;
@@ -56,7 +56,7 @@ namespace Cay_Nhi_Phan
 				g.DrawString(A.number.ToString(), new Font(FontFamily.GenericSerif, 15, FontStyle.Bold), new SolidBrush(Color.White), new PointF(A.vitri.X + 11, A.vitri.Y + 8f));
 			}
 			else
-			{	
+			{
 				g.DrawString(A.number.ToString(), new Font(FontFamily.GenericSerif, 15, FontStyle.Bold), new SolidBrush(Color.White), new PointF(A.vitri.X + 7, A.vitri.Y + 8f));
 			}
 			pb_Main.Image = bitmap;
@@ -64,14 +64,17 @@ namespace Cay_Nhi_Phan
 		public void DrawSearch(class_node A)
 		{
 			g.DrawImage(Cay_Nhi_Phan.Properties.Resources.search, A.vitri.X, A.vitri.Y);
-			g.DrawString(A.number.ToString(), new Font(FontFamily.GenericSerif, 15, FontStyle.Bold), new SolidBrush(Color.White), new PointF(A.vitri.X + 11, A.vitri.Y + 8f));
 			pb_Main.Image = bitmap;
 		}
-
-		public void DiChuyen(ref class_node A, PointF B)
+		public void DrawDelete(class_node A)
+		{
+			g.DrawImage(Cay_Nhi_Phan.Properties.Resources.delete, A.vitri.X, A.vitri.Y);
+			pb_Main.Image = bitmap;
+		}
+		public void DiChuyen(ref class_node A, PointF B,int cv)
 		{
 			A.locationOld = A.vitri;
-			int speed=1;
+			int speed = 1;
 			if (ComboBox_Speed.Text == "")
 			{
 				speed = 1;
@@ -88,10 +91,21 @@ namespace Cay_Nhi_Phan
 				while (A.vitri.X - B.X < 0)//A.vitri.X - B.X < 0
 				{
 					g.Clear(Color.White);
-					A.vitri.X+=1;
+					A.vitri.X += 1;
 					A.vitri.Y = a * A.vitri.X + b;
-					VeCay_special(Root, A);
-					DrawNodeRed(A);
+					if (cv == 1)
+					{
+						VeCay_special(Root, A);
+						DrawNodeRed(A);
+					}
+					else
+					{
+						if (cv == 2)
+						{
+							VeCay_normal(Root);
+							DrawSearch(A);
+						}
+					}
 					Thread.Sleep(1);
 					Application.DoEvents();
 				}
@@ -101,58 +115,39 @@ namespace Cay_Nhi_Phan
 				while (A.vitri.X - B.X > 0)
 				{
 					g.Clear(Color.White);
-					A.vitri.X-=1;
+					A.vitri.X -= 1;
 					A.vitri.Y = a * A.vitri.X + b;
-					VeCay_special(Root, A);			
-					DrawNodeRed(A);
+					if (cv == 1)
+					{
+						VeCay_special(Root, A);
+						DrawNodeRed(A);
+					}
+					else
+					{
+						if (cv == 2)
+						{
+							VeCay_normal(Root);
+							DrawSearch(A);
+						}
+					}
 					Thread.Sleep(1);
 					Application.DoEvents();
 				}
 			}
 		}
-	
-		private void txtInput_KeyDown(object sender, KeyEventArgs e)
-		{
-			if (e.KeyCode == Keys.Enter && txtInput.Text.Length > 0)
-			{
-				int StatusInsert;
-				try
-				{
-					int Temp = Convert.ToInt32(txtInput.Text);
-					way.Clear();
-					StatusInsert = InsertNode(ref Root, Temp);
-				}
-				catch
-				{
-					MessageBox.Show(" Gia tri nhap khong dung");
-				}
-				Xd_ViTriCu(ref Root);
-				Xd_ViTriMoi(ref Root);
-				for (int i = 0; i < 50; i++)
-				{
-					DiChuyenCay(ref Root);
-					g.Clear(Color.White);
-					VeCay_normal(Root);
-					Thread.Sleep(2);
-					Application.DoEvents();
-				}
-				g.Clear(Color.White);
-				Xd_ViTri(ref Root);
-				VeCay_normal(Root);
-				txtInput.Clear();
-			}		
-		}
+
+
 
 		// Di chuyển node xuống vị trí pLeft hoặc pRight
-		public void MoveDown(ref class_node n, int heso)
+		public void MoveDown(ref class_node n, int heso, int cv)
 		{
 			if (heso == LEFT) //move_down_left
 			{
-				DiChuyen(ref n, nodeLR(n.vitri, LEFT));
+				DiChuyen(ref n, nodeLR(n.vitri, LEFT),cv);
 			}
 			if (heso == RIGHT) //move_down_right
 			{
-				DiChuyen(ref n, nodeLR(n.vitri, RIGHT));
+				DiChuyen(ref n, nodeLR(n.vitri, RIGHT),cv);
 			}
 		}
 		// Hàm nhận vào 1 node và trả về vị trí node pPeft hoặc pRight của node đó
@@ -182,53 +177,38 @@ namespace Cay_Nhi_Phan
 			if (n != null)
 			{
 				if (n.left != null)
-				{
-					
-					if (n.left.number.ToString() == txtInput.Text)
-					{
-						DrawNodeRed(n.left);
-					}
-					else
-					{
-						DrawNode(n.left);
-					}
+				{ 
+					DrawNode(n.left);
 					VeCanh(n.vitri, n.left.vitri);
 				}
 				if (n.right != null)
 				{
-					
-					if (n.right.number.ToString() == txtInput.Text)
-					{
-						DrawNodeRed(n.right);
-					}
-					else
-					{
-						DrawNode(n.right);
-					}
+
+					DrawNode(n.right);
 					VeCanh(n.vitri, n.right.vitri);
 				}
 				VeCay_normal(n.left);
 				VeCay_normal(n.right);
 			}
 		}
-		public void VeCay_special(class_node n,class_node a)
+		public void VeCay_special(class_node n, class_node a)
 		{
 			if (Root != null)
 				DrawNode(Root);
 			if (n != null)
 			{
-				if (n.left != null && n.left!=a)
-				{				
+				if (n.left != null && n.left != a)
+				{
 					DrawNode(n.left);
 					VeCanh(n.vitri, n.left.vitri);
 				}
-				if (n.right != null && n.right!=a)
+				if (n.right != null && n.right != a)
 				{
 					DrawNode(n.right);
 					VeCanh(n.vitri, n.right.vitri);
 				}
-				VeCay_special(n.left,a);
-				VeCay_special(n.right,a);
+				VeCay_special(n.left, a);
+				VeCay_special(n.right, a);
 			}
 		}
 		// Xác dịnh lại vị trí cho node để vẽ cây
@@ -260,7 +240,7 @@ namespace Cay_Nhi_Phan
 		{
 			if (Root != null)
 			{
-				Root.locationOld= Root.vitri;
+				Root.locationOld = Root.vitri;
 			}
 			if (n != null)
 			{
@@ -308,7 +288,7 @@ namespace Cay_Nhi_Phan
 			{
 				if (node.locationNew != node.locationOld)
 				{
-					DiChuyenSpecial(ref node, node.locationNew);		
+					DiChuyenSpecial(ref node, node.locationNew);
 				}
 				DiChuyenCay(ref node.left);
 				DiChuyenCay(ref node.right);
@@ -317,26 +297,26 @@ namespace Cay_Nhi_Phan
 
 		public void DiChuyenSpecial(ref class_node A, PointF B)
 		{
-		
-				float a = (B.Y - A.vitri.Y) / (B.X - A.vitri.X);
-				float b = B.Y - a * B.X;
-				float deltaX = Math.Abs(B.X - A.locationOld.X);
-				if (A.vitri.X - B.X < 0)
+
+			float a = (B.Y - A.vitri.Y) / (B.X - A.vitri.X);
+			float b = B.Y - a * B.X;
+			float deltaX = Math.Abs(B.X - A.locationOld.X);
+			if (A.vitri.X - B.X < 0)
+			{
+				if (A.vitri.X - B.X < 0)//A.vitri.X - B.X < 0
 				{
-					if (A.vitri.X - B.X < 0)//A.vitri.X - B.X < 0
-					{
-						A.vitri.X += (deltaX/50) ;
-						A.vitri.Y = a * A.vitri.X + b;
-					}
+					A.vitri.X += (deltaX / 50);
+					A.vitri.Y = a * A.vitri.X + b;
 				}
-				else
+			}
+			else
+			{
+				if (A.vitri.X - B.X > 0)
 				{
-					if (A.vitri.X - B.X > 0)
-					{
-						A.vitri.X -= (deltaX/50) ;
-						A.vitri.Y = a * A.vitri.X + b;
-					}
+					A.vitri.X -= (deltaX / 50);
+					A.vitri.Y = a * A.vitri.X + b;
 				}
+			}
 		}
 		//
 		void Rotate_Left_Left(ref class_node node)
@@ -478,7 +458,7 @@ namespace Cay_Nhi_Phan
 			}
 			return 0;
 		}
-		int InsertNode(ref class_node node, int number)
+		private int InsertNode(ref class_node node, int number)
 		{
 
 			int Res;
@@ -489,7 +469,7 @@ namespace Cay_Nhi_Phan
 				{
 					for (int i = 0; i < way.Count; i++)
 					{
-						MoveDown(ref node, way[i]);
+						MoveDown(ref node, way[i],1);
 					}
 				}
 			}
@@ -497,7 +477,6 @@ namespace Cay_Nhi_Phan
 			{
 				if (node.number == number)
 				{
-					MessageBox.Show(" Da ton tai gia tri ");
 					return 0;
 				}
 				if (number < node.number)
@@ -544,6 +523,229 @@ namespace Cay_Nhi_Phan
 			}
 			return 2;
 		}
+
+		private int DelNode(ref class_node node, int number)
+		{
+			int Res;
+			//Khong ton tai node nay tren cay
+			if (node == null)
+			{
+				class_node Temp_Run = new class_node();
+				if (way.Count != 0)
+				{
+					for (int i = 0; i < way.Count-1; i++)
+					{
+						MoveDown(ref Temp_Run, way[i], 2);
+					}
+				}
+				MessageBox.Show(" Khong tim thay node co gia tri can xoa ");
+				return 0;
+			}
+			
+			if (node.number == number)
+			{
+
+				class_node Temp_Run = new class_node();
+				if (way.Count != 0)
+				{
+					for (int i = 0; i < way.Count; i++)
+					{
+						MoveDown(ref Temp_Run, way[i], 2);
+					}
+				}
+				g.Clear(Color.White);
+				VeCay_normal(Root);
+				DrawDelete(Temp_Run);
+				
+				MessageBox.Show(" Da tim thay node co gia tri " + number + " va se xoa ngay !");				
+				
+				//Root->info = x
+				class_node Temp = node;
+
+				if (node.left == null)
+				{
+					node = node.right;
+					Res = 2;
+				}
+				else
+				{
+					if (node.right == null)
+					{
+						node = node.left;
+						Res = 2;
+					}
+					else
+					{
+						Res = SearchStandFor(ref Temp,ref node.right);
+						if (Res < 2) return Res;
+						switch (node.canbang)
+						{
+							case RIGHT:
+								node.canbang = EQUAL;
+								return 2;
+							case EQUAL:
+								node.canbang = LEFT;
+								return 1;
+							case LEFT:
+								return BalanceRight(ref node);
+						}
+					}
+					Temp = null;
+					return Res;
+				}
+			}
+			else
+			{
+				//Root->info > x => Sang ben trai tim xoa
+				if (node.number > number)
+				{
+					way.Add(LEFT);
+					Res = DelNode(ref node.left, number);
+					if (Res < 2) return Res;
+
+					//Chieu cao bi thay doi
+					switch (node.canbang)
+					{
+						case LEFT:
+							node.canbang = EQUAL;
+							return 2;
+						case EQUAL:
+							node.canbang = RIGHT;
+							return 1;
+						case RIGHT:
+							return BalanceRight(ref node);
+					}
+				}
+
+				if (node.number < number)
+				{
+					way.Add(RIGHT);
+					Res = DelNode(ref node.right, number);
+
+					if (Res < 2) return Res;
+
+					switch (node.canbang)
+					{
+						case LEFT:
+							return BalanceLeft(ref node);
+						case EQUAL:
+							node.canbang = LEFT;
+							return 1;
+						case RIGHT:
+							node.canbang = EQUAL;
+							return 2;
+					}
+				}
+			}
+			return 0;
+		}
+
+		//Tim node the mang
+	private int SearchStandFor(ref class_node Temp, ref class_node node)
+		{
+			int Res;
+
+			if (node.left!=null)
+			{
+				Res = SearchStandFor(ref Temp, ref node.left);
+
+				if (Res < 2) return Res;
+
+				switch (node.canbang)
+				{
+					case LEFT:
+						node.canbang = EQUAL;
+						return 1;
+					case EQUAL:
+						node.canbang = RIGHT;
+						return 2;
+					case RIGHT:
+						return BalanceRight(ref Temp);
+				}
+			}
+
+			Temp.number = node.number;
+			Temp = node;
+			node = node.right;
+			return 2;
+		}
+
+
+
+		private void FindANode(class_node node, int number)
+		{
+			if (node == null)
+			{
+				class_node Temp = new class_node();
+				if (way.Count != 0)
+				{
+					for (int i = 0; i < way.Count-1; i++)
+					{
+						MoveDown(ref Temp, way[i], 2);
+					}
+				}
+				MessageBox.Show(" Khong tim thay node nao co gia tri " + number+" !");
+				Temp = null;
+				g.Clear(Color.White);
+				VeCay_normal(Root);
+				Input_TextBox.Clear();
+				return;
+			}
+			else
+			{
+				if (node == Root && node.number == number)
+				{
+					DrawSearch(Root);
+					MessageBox.Show(" Da tim thay node co gia tri " + number + " !");
+					g.Clear(Color.White);
+					VeCay_normal(Root);
+					Input_TextBox.Clear();
+					return;
+				}
+				if (node.number == number)
+				{
+					class_node Temp = new class_node();
+					if (way.Count != 0)
+					{
+						for (int i = 0; i < way.Count; i++)
+						{
+							MoveDown(ref Temp, way[i], 2);
+						}
+					}
+					MessageBox.Show(" Da tim thay node co gia tri " + number+" !");
+					Temp = null;
+					g.Clear(Color.White);
+					VeCay_normal(Root);
+					Input_TextBox.Clear();
+					return;
+				}
+				if (number < node.number)
+				{
+					way.Add(LEFT);
+					FindANode(node.left, number);
+				}
+				else
+				{
+					way.Add(RIGHT);
+					FindANode(node.right, number);
+				}
+			}
+		}
+
+		private void InItTree(ref class_node node)
+		{
+			node = null;
+		}
+
+		private int IsEmtyTree(class_node node)
+		{
+			if (node == null)
+			{
+				return 1;
+			}
+			else return 0;
+		}
+
 		private void pb_Main_MouseMove(object sender, MouseEventArgs e)
 		{
 
@@ -554,8 +756,136 @@ namespace Cay_Nhi_Phan
 			Root = null;
 			g.Clear(Color.White);
 			pb_Main.Image = bitmap;
-			MessageBox.Show(" Da xoa thanh cong cay! ");			
+			MessageBox.Show(" Da xoa thanh cong cay! ");
 		}
+
+		private void Find_Button_Click(object sender, EventArgs e)
+		{
+			if (Input_TextBox.Text.Length > 0)
+			{
+				try
+				{
+					int Temp = Convert.ToInt32(Input_TextBox.Text);
+					way.Clear();
+					FindANode(Root, Temp);
+				}
+				catch
+				{
+					MessageBox.Show(" Gia tri nhap khong dung");
+				}
+			}
+			else
+			{
+				MessageBox.Show(" Ban chua nhap gia tri ");
+			}
+		}
+
+		private void Del_Node_Button_Click(object sender, EventArgs e)
+		{
+			if (Input_TextBox.Text.Length > 0)
+			{
+				try
+				{
+					int Temp = Convert.ToInt32(Input_TextBox.Text);
+					way.Clear();
+					DelNode(ref Root, Temp);
+				}
+				catch
+				{
+					MessageBox.Show(" Gia tri nhap khong dung");
+				}
+				Xd_ViTriCu(ref Root);
+				Xd_ViTriMoi(ref Root);
+				for (int i = 0; i < 50; i++)
+				{
+					DiChuyenCay(ref Root);
+					g.Clear(Color.White);
+					VeCay_normal(Root);
+					Thread.Sleep(2);
+					Application.DoEvents();
+				}
+				g.Clear(Color.White);
+				Xd_ViTri(ref Root);
+				VeCay_normal(Root);
+				Input_TextBox.Clear();
+			}
+			else
+			{
+				MessageBox.Show(" Ban chua nhap gia tri ");
+			}
+		}
+		private void txtInput_KeyDown(object sender, KeyEventArgs e)
+		{
+			if (e.KeyCode == Keys.Enter && Input_TextBox.Text.Length > 0)
+			{
+				int StatusInsert;
+				try
+				{
+					int Temp = Convert.ToInt32(Input_TextBox.Text);
+					way.Clear();
+					StatusInsert = InsertNode(ref Root, Temp);
+					if ( StatusInsert == 0)
+					{
+						MessageBox.Show(" Da ton tai gia tri ");
+						return;
+					}
+				}
+				catch
+				{
+					MessageBox.Show(" Gia tri nhap khong dung");
+				}
+				Xd_ViTriCu(ref Root);
+				Xd_ViTriMoi(ref Root);
+				for (int i = 0; i < 50; i++)
+				{
+					DiChuyenCay(ref Root);
+					g.Clear(Color.White);
+					VeCay_normal(Root);
+					Thread.Sleep(2);
+					Application.DoEvents();
+				}
+				g.Clear(Color.White);
+				Xd_ViTri(ref Root);
+				VeCay_normal(Root);
+				Input_TextBox.Clear();
+			}
+		}
+
+		private void Random_Button_Click(object sender, EventArgs e)
+		{
+			int N_Tam = 0;
+			Random ran = new Random();
+			int StatusInsert ;
+			if (Random_NumericUpDown.Value > 0)
+			{
+				while (N_Tam < Random_NumericUpDown.Value)
+				{
+					way.Clear();
+					int value = ran.Next(100);
+					StatusInsert = InsertNode(ref Root, value);
+					if (StatusInsert != 0 )
+					{
+						N_Tam++;
+					}
+					Xd_ViTriCu(ref Root);
+					Xd_ViTriMoi(ref Root);
+					for (int i = 0; i < 50; i++)
+					{
+						DiChuyenCay(ref Root);
+						g.Clear(Color.White);
+						VeCay_normal(Root);
+						Thread.Sleep(1);
+						Application.DoEvents();
+					}
+					g.Clear(Color.White);
+					Xd_ViTri(ref Root);
+					VeCay_normal(Root);
+					Input_TextBox.Clear();
+				}
+			}
+		}
+
+	
 	}
 }
 
