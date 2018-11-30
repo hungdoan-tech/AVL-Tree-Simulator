@@ -28,12 +28,12 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.pb_Main = new System.Windows.Forms.PictureBox();
+			this.Main_PictureBox = new System.Windows.Forms.PictureBox();
 			this.Input_TextBox = new System.Windows.Forms.TextBox();
 			this.Del_Tree_Button = new System.Windows.Forms.Button();
-			this.ComboBox_Speed = new System.Windows.Forms.ComboBox();
+			this.Speed_ComboBox = new System.Windows.Forms.ComboBox();
 			this.groupBox1 = new System.Windows.Forms.GroupBox();
-			this.label5 = new System.Windows.Forms.Label();
+			this.Speed_Label = new System.Windows.Forms.Label();
 			this.N_Random_Label = new System.Windows.Forms.Label();
 			this.Del_Node_Button = new System.Windows.Forms.Button();
 			this.Random_Button = new System.Windows.Forms.Button();
@@ -44,32 +44,32 @@
 			this.LNR_Button = new System.Windows.Forms.Button();
 			this.LRN_Button = new System.Windows.Forms.Button();
 			this.groupBox4 = new System.Windows.Forms.GroupBox();
-			this.label4 = new System.Windows.Forms.Label();
+			this.Total_Node_Label = new System.Windows.Forms.Label();
 			this.The_Height_Tree_TextBox = new System.Windows.Forms.TextBox();
 			this.Total_Intermediate_Node_TextBox = new System.Windows.Forms.TextBox();
 			this.Total_Leaf_Node_TextBox = new System.Windows.Forms.TextBox();
 			this.Total_Node_TextBox = new System.Windows.Forms.TextBox();
-			this.label3 = new System.Windows.Forms.Label();
-			this.label2 = new System.Windows.Forms.Label();
-			this.label1 = new System.Windows.Forms.Label();
+			this.The_Height_Tree_Label = new System.Windows.Forms.Label();
+			this.Intermediate_Node_Label = new System.Windows.Forms.Label();
+			this.Leaf_Node_Label = new System.Windows.Forms.Label();
 			this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-			((System.ComponentModel.ISupportInitialize)(this.pb_Main)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.Main_PictureBox)).BeginInit();
 			this.groupBox1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.Random_NumericUpDown)).BeginInit();
 			this.groupBox2.SuspendLayout();
 			this.groupBox4.SuspendLayout();
 			this.SuspendLayout();
 			// 
-			// pb_Main
+			// Main_PictureBox
 			// 
-			this.pb_Main.BackColor = System.Drawing.Color.White;
-			this.pb_Main.Location = new System.Drawing.Point(12, 12);
-			this.pb_Main.Name = "pb_Main";
-			this.pb_Main.Size = new System.Drawing.Size(1024, 495);
-			this.pb_Main.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-			this.pb_Main.TabIndex = 1;
-			this.pb_Main.TabStop = false;
-			this.pb_Main.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pb_Main_MouseMove);
+			this.Main_PictureBox.BackColor = System.Drawing.Color.White;
+			this.Main_PictureBox.Location = new System.Drawing.Point(12, 12);
+			this.Main_PictureBox.Name = "Main_PictureBox";
+			this.Main_PictureBox.Size = new System.Drawing.Size(1070, 510);
+			this.Main_PictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+			this.Main_PictureBox.TabIndex = 1;
+			this.Main_PictureBox.TabStop = false;
+			this.Main_PictureBox.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Main_PictureBox_MouseMove);
 			// 
 			// Input_TextBox
 			// 
@@ -92,23 +92,23 @@
 			this.Del_Tree_Button.UseVisualStyleBackColor = true;
 			this.Del_Tree_Button.Click += new System.EventHandler(this.Del_Tree_Button_Click);
 			// 
-			// ComboBox_Speed
+			// Speed_ComboBox
 			// 
-			this.ComboBox_Speed.FormattingEnabled = true;
-			this.ComboBox_Speed.Items.AddRange(new object[] {
+			this.Speed_ComboBox.FormattingEnabled = true;
+			this.Speed_ComboBox.Items.AddRange(new object[] {
             "1",
             "2",
             "3",
             "4"});
-			this.ComboBox_Speed.Location = new System.Drawing.Point(37, 80);
-			this.ComboBox_Speed.Name = "ComboBox_Speed";
-			this.ComboBox_Speed.Size = new System.Drawing.Size(66, 21);
-			this.ComboBox_Speed.TabIndex = 4;
+			this.Speed_ComboBox.Location = new System.Drawing.Point(37, 80);
+			this.Speed_ComboBox.Name = "Speed_ComboBox";
+			this.Speed_ComboBox.Size = new System.Drawing.Size(66, 21);
+			this.Speed_ComboBox.TabIndex = 4;
 			// 
 			// groupBox1
 			// 
-			this.groupBox1.Controls.Add(this.label5);
-			this.groupBox1.Controls.Add(this.ComboBox_Speed);
+			this.groupBox1.Controls.Add(this.Speed_Label);
+			this.groupBox1.Controls.Add(this.Speed_ComboBox);
 			this.groupBox1.Controls.Add(this.N_Random_Label);
 			this.groupBox1.Controls.Add(this.Del_Node_Button);
 			this.groupBox1.Controls.Add(this.Random_Button);
@@ -116,21 +116,21 @@
 			this.groupBox1.Controls.Add(this.Del_Tree_Button);
 			this.groupBox1.Controls.Add(this.Random_NumericUpDown);
 			this.groupBox1.Controls.Add(this.Input_TextBox);
-			this.groupBox1.Location = new System.Drawing.Point(12, 513);
+			this.groupBox1.Location = new System.Drawing.Point(12, 532);
 			this.groupBox1.Name = "groupBox1";
 			this.groupBox1.Size = new System.Drawing.Size(230, 118);
 			this.groupBox1.TabIndex = 5;
 			this.groupBox1.TabStop = false;
 			this.groupBox1.Text = "Basic";
 			// 
-			// label5
+			// Speed_Label
 			// 
-			this.label5.AutoSize = true;
-			this.label5.Location = new System.Drawing.Point(-3, 83);
-			this.label5.Name = "label5";
-			this.label5.Size = new System.Drawing.Size(38, 13);
-			this.label5.TabIndex = 9;
-			this.label5.Text = "Speed";
+			this.Speed_Label.AutoSize = true;
+			this.Speed_Label.Location = new System.Drawing.Point(-3, 83);
+			this.Speed_Label.Name = "Speed_Label";
+			this.Speed_Label.Size = new System.Drawing.Size(38, 13);
+			this.Speed_Label.TabIndex = 9;
+			this.Speed_Label.Text = "Speed";
 			// 
 			// N_Random_Label
 			// 
@@ -189,7 +189,7 @@
 			this.groupBox2.Controls.Add(this.NLR_Button);
 			this.groupBox2.Controls.Add(this.LNR_Button);
 			this.groupBox2.Controls.Add(this.LRN_Button);
-			this.groupBox2.Location = new System.Drawing.Point(248, 513);
+			this.groupBox2.Location = new System.Drawing.Point(248, 532);
 			this.groupBox2.Name = "groupBox2";
 			this.groupBox2.Size = new System.Drawing.Size(88, 119);
 			this.groupBox2.TabIndex = 6;
@@ -226,30 +226,30 @@
 			// 
 			// groupBox4
 			// 
-			this.groupBox4.Controls.Add(this.label4);
+			this.groupBox4.Controls.Add(this.Total_Node_Label);
 			this.groupBox4.Controls.Add(this.The_Height_Tree_TextBox);
 			this.groupBox4.Controls.Add(this.Total_Intermediate_Node_TextBox);
 			this.groupBox4.Controls.Add(this.Total_Leaf_Node_TextBox);
 			this.groupBox4.Controls.Add(this.Total_Node_TextBox);
-			this.groupBox4.Controls.Add(this.label3);
-			this.groupBox4.Controls.Add(this.label2);
-			this.groupBox4.Controls.Add(this.label1);
+			this.groupBox4.Controls.Add(this.The_Height_Tree_Label);
+			this.groupBox4.Controls.Add(this.Intermediate_Node_Label);
+			this.groupBox4.Controls.Add(this.Leaf_Node_Label);
 			this.groupBox4.Controls.Add(this.richTextBox1);
-			this.groupBox4.Location = new System.Drawing.Point(342, 511);
+			this.groupBox4.Location = new System.Drawing.Point(342, 532);
 			this.groupBox4.Name = "groupBox4";
 			this.groupBox4.Size = new System.Drawing.Size(556, 119);
 			this.groupBox4.TabIndex = 8;
 			this.groupBox4.TabStop = false;
 			this.groupBox4.Text = "Info";
 			// 
-			// label4
+			// Total_Node_Label
 			// 
-			this.label4.AutoSize = true;
-			this.label4.Location = new System.Drawing.Point(6, 16);
-			this.label4.Name = "label4";
-			this.label4.Size = new System.Drawing.Size(60, 13);
-			this.label4.TabIndex = 11;
-			this.label4.Text = "Total Node";
+			this.Total_Node_Label.AutoSize = true;
+			this.Total_Node_Label.Location = new System.Drawing.Point(6, 16);
+			this.Total_Node_Label.Name = "Total_Node_Label";
+			this.Total_Node_Label.Size = new System.Drawing.Size(60, 13);
+			this.Total_Node_Label.TabIndex = 11;
+			this.Total_Node_Label.Text = "Total Node";
 			// 
 			// The_Height_Tree_TextBox
 			// 
@@ -279,32 +279,32 @@
 			this.Total_Node_TextBox.Size = new System.Drawing.Size(61, 20);
 			this.Total_Node_TextBox.TabIndex = 7;
 			// 
-			// label3
+			// The_Height_Tree_Label
 			// 
-			this.label3.AutoSize = true;
-			this.label3.Location = new System.Drawing.Point(6, 92);
-			this.label3.Name = "label3";
-			this.label3.Size = new System.Drawing.Size(60, 13);
-			this.label3.TabIndex = 6;
-			this.label3.Text = "The Height";
+			this.The_Height_Tree_Label.AutoSize = true;
+			this.The_Height_Tree_Label.Location = new System.Drawing.Point(6, 92);
+			this.The_Height_Tree_Label.Name = "The_Height_Tree_Label";
+			this.The_Height_Tree_Label.Size = new System.Drawing.Size(85, 13);
+			this.The_Height_Tree_Label.TabIndex = 6;
+			this.The_Height_Tree_Label.Text = "The Height Tree";
 			// 
-			// label2
+			// Intermediate_Node_Label
 			// 
-			this.label2.AutoSize = true;
-			this.label2.Location = new System.Drawing.Point(6, 63);
-			this.label2.Name = "label2";
-			this.label2.Size = new System.Drawing.Size(94, 13);
-			this.label2.TabIndex = 5;
-			this.label2.Text = "Intermediate Node";
+			this.Intermediate_Node_Label.AutoSize = true;
+			this.Intermediate_Node_Label.Location = new System.Drawing.Point(6, 63);
+			this.Intermediate_Node_Label.Name = "Intermediate_Node_Label";
+			this.Intermediate_Node_Label.Size = new System.Drawing.Size(94, 13);
+			this.Intermediate_Node_Label.TabIndex = 5;
+			this.Intermediate_Node_Label.Text = "Intermediate Node";
 			// 
-			// label1
+			// Leaf_Node_Label
 			// 
-			this.label1.AutoSize = true;
-			this.label1.Location = new System.Drawing.Point(6, 37);
-			this.label1.Name = "label1";
-			this.label1.Size = new System.Drawing.Size(57, 13);
-			this.label1.TabIndex = 4;
-			this.label1.Text = "Leaf Node";
+			this.Leaf_Node_Label.AutoSize = true;
+			this.Leaf_Node_Label.Location = new System.Drawing.Point(6, 37);
+			this.Leaf_Node_Label.Name = "Leaf_Node_Label";
+			this.Leaf_Node_Label.Size = new System.Drawing.Size(57, 13);
+			this.Leaf_Node_Label.TabIndex = 4;
+			this.Leaf_Node_Label.Text = "Leaf Node";
 			// 
 			// richTextBox1
 			// 
@@ -319,14 +319,14 @@
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.AutoSize = true;
-			this.ClientSize = new System.Drawing.Size(1050, 642);
+			this.ClientSize = new System.Drawing.Size(1089, 659);
 			this.Controls.Add(this.groupBox4);
 			this.Controls.Add(this.groupBox2);
 			this.Controls.Add(this.groupBox1);
-			this.Controls.Add(this.pb_Main);
+			this.Controls.Add(this.Main_PictureBox);
 			this.Name = "Form1";
 			this.Text = "Form1";
-			((System.ComponentModel.ISupportInitialize)(this.pb_Main)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.Main_PictureBox)).EndInit();
 			this.groupBox1.ResumeLayout(false);
 			this.groupBox1.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.Random_NumericUpDown)).EndInit();
@@ -338,10 +338,10 @@
 		}
 
 		#endregion
-		private System.Windows.Forms.PictureBox pb_Main;
+		private System.Windows.Forms.PictureBox Main_PictureBox;
 		private System.Windows.Forms.TextBox Input_TextBox;
 		private System.Windows.Forms.Button Del_Tree_Button;
-		private System.Windows.Forms.ComboBox ComboBox_Speed;
+		private System.Windows.Forms.ComboBox Speed_ComboBox;
 		private System.Windows.Forms.GroupBox groupBox1;
 		private System.Windows.Forms.GroupBox groupBox2;
 		private System.Windows.Forms.GroupBox groupBox4;
@@ -353,15 +353,15 @@
 		private System.Windows.Forms.Button LRN_Button;
 		private System.Windows.Forms.Button LNR_Button;
 		private System.Windows.Forms.Button NLR_Button;
-		private System.Windows.Forms.Label label5;
-		private System.Windows.Forms.Label label4;
+		private System.Windows.Forms.Label Speed_Label;
+		private System.Windows.Forms.Label Total_Node_Label;
 		private System.Windows.Forms.TextBox The_Height_Tree_TextBox;
 		private System.Windows.Forms.TextBox Total_Intermediate_Node_TextBox;
 		private System.Windows.Forms.TextBox Total_Leaf_Node_TextBox;
 		private System.Windows.Forms.TextBox Total_Node_TextBox;
-		private System.Windows.Forms.Label label3;
-		private System.Windows.Forms.Label label2;
-		private System.Windows.Forms.Label label1;
+		private System.Windows.Forms.Label The_Height_Tree_Label;
+		private System.Windows.Forms.Label Intermediate_Node_Label;
+		private System.Windows.Forms.Label Leaf_Node_Label;
 		private System.Windows.Forms.RichTextBox richTextBox1;
 	}
 }
