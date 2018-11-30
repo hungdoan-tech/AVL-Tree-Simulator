@@ -69,6 +69,7 @@
 			this.Main_PictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
 			this.Main_PictureBox.TabIndex = 1;
 			this.Main_PictureBox.TabStop = false;
+			this.Main_PictureBox.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Main_PictureBox_MouseClick);
 			this.Main_PictureBox.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Main_PictureBox_MouseMove);
 			// 
 			// Input_TextBox

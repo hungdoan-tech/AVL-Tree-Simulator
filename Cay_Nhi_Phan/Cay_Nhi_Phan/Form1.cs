@@ -323,6 +323,54 @@ namespace Cay_Nhi_Phan
 			}
 			Speed = (5 - Convert.ToInt32(Speed_ComboBox.Text)) * 10;
 		}
+		private void ShowTextBox(class_node node)
+		{
+			Info_RichTextBox.Clear();
+			if ((Convert.ToInt32(node.vitri.X + 200) >= Main_PictureBox.Width) || (Convert.ToInt32(node.vitri.Y + 200) >= Main_PictureBox.Height))
+			{
+				Info_RichTextBox.Location = new Point(Convert.ToInt32(node.vitri.X ), Convert.ToInt32(node.vitri.Y - 100));
+			}
+			else
+			{
+				Info_RichTextBox.Location = new Point(Convert.ToInt32(node.vitri.X + 50), Convert.ToInt32(node.vitri.Y + 50));
+			}
+			Info_RichTextBox.Size = new Size(160, 84);
+			Info_RichTextBox.AppendText(" Node " + node.number);
+			if (node == Root)
+			{
+				Info_RichTextBox.AppendText(" -  Node gốc ");
+			}
+			else
+			{
+				if (node.left == null && node.right == null)
+				{
+					Info_RichTextBox.AppendText(" -  Node lá ");
+				}
+				else
+				{
+					Info_RichTextBox.AppendText(" -  Node trung gian ");
+				}
+			}
+			Info_RichTextBox.AppendText("\n- Hệ số cân bằng: ");
+			switch (node.canbang)
+			{
+				case LEFT: Info_RichTextBox.AppendText("LH"); break;
+				case EQUAL: Info_RichTextBox.AppendText("EH"); break;
+				case RIGHT: Info_RichTextBox.AppendText("RH"); break;
+			}
+			if (node.left != null)
+				Info_RichTextBox.AppendText("\n- Node pLeft: " + node.left.number);
+			else
+				Info_RichTextBox.AppendText("\n- Node pLeft rỗng");
+			if (node.right != null)
+				Info_RichTextBox.AppendText("\n- Node pRight: " + node.right.number);
+			else
+				Info_RichTextBox.AppendText("\n- Node pRight rỗng");
+
+			//Info_RichTextBox.AppendText("\n <RightClick> to delete");
+			//Info_RichTextBox.AppendText("\n <Esc> key to hide textbox");
+			Main_PictureBox.Controls.Add(Info_RichTextBox);
+		}
 		#endregion
 
 		#region Build Tree 
@@ -958,14 +1006,6 @@ namespace Cay_Nhi_Phan
 				}
 			}
 		}
-		private void NLR(class_node node)
-		{
-
-		}
-		private void NLR_Button_Click(object sender, EventArgs e)
-		{
-			
-		}
 		private void Main_PictureBox_MouseMove(object sender, MouseEventArgs e)
 		{
 			MyMouseMove(Root, e.Location);		
@@ -983,48 +1023,25 @@ namespace Cay_Nhi_Phan
 				MyMouseMove(node.right, p);
 			}
 		}
-		private void ShowTextBox(class_node node)
+		
+		private void Main_PictureBox_MouseClick(object sender, MouseEventArgs e)
 		{
-			Info_RichTextBox.Clear();
-			Info_RichTextBox.Location = new Point(Convert.ToInt32(node.vitri.X + 50),Convert.ToInt32(node.vitri.Y + 50));
-			Info_RichTextBox.Size = new Size(160, 84);
-			Info_RichTextBox.AppendText(" Node " + node.number);
-			if (node == Root)
+			if (e.Button == MouseButtons.Right)
 			{
-				Info_RichTextBox.AppendText(" -  Node gốc ");
-			}
-			else
-			{
-				if (node.left == null && node.right == null)
-				{
-					Info_RichTextBox.AppendText(" -  Node lá ");
-				}
-				else
-				{
-					Info_RichTextBox.AppendText(" -  Node trung gian ");
-				}
-			}
-			Info_RichTextBox.AppendText("\n- Hệ số cân bằng: ");
-			switch (node.canbang)
-			{
-				case LEFT: Info_RichTextBox.AppendText("LH"); break;
-				case EQUAL: Info_RichTextBox.AppendText("EH"); break;
-				case RIGHT: Info_RichTextBox.AppendText("RH"); break;
-			}
-			if (node.left != null)
-				Info_RichTextBox.AppendText("\n- Node pLeft: " + node.left.number);
-			else
-				Info_RichTextBox.AppendText("\n- Node pLeft rỗng");
-			if (node.right != null)
-				Info_RichTextBox.AppendText("\n- Node pRight: " + node.right.number);
-			else
-				Info_RichTextBox.AppendText("\n- Node pRight rỗng");
 
-			//Info_RichTextBox.AppendText("\n <RightClick> to delete");
-			//Info_RichTextBox.AppendText("\n <Esc> key to hide textbox");
-			Main_PictureBox.Controls.Add(Info_RichTextBox);
+			}
+		}
+		private void NLR(class_node node)
+		{
+
+		}
+		private void NLR_Button_Click(object sender, EventArgs e)
+		{
+
 		}
 		#endregion
+
+
 	}
 }
 
