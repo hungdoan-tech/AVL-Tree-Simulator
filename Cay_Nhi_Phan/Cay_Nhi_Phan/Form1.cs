@@ -42,7 +42,7 @@ namespace Cay_Nhi_Phan
 		#region Do Hoa
 		public void VeCanh(PointF a, PointF b)
 		{
-			g.DrawLine(new Pen(Color.GreenYellow, 2), a.X + 20, a.Y + 39, b.X + 20, b.Y);
+			g.DrawLine(new Pen(Color.GreenYellow, 2), a.X + 16, a.Y + 32, b.X + 16, b.Y);
 			Main_PictureBox.Image = bitmap;
 		}
 		public void DrawNode(class_node A)
@@ -52,7 +52,7 @@ namespace Cay_Nhi_Phan
 			{
 				if (A.number >= 0)
 				{
-					g.DrawString(A.number.ToString(), new Font(FontFamily.GenericSerif, 15, FontStyle.Bold), new SolidBrush(Color.White), new PointF(A.vitri.X + 13, A.vitri.Y + 8f));
+					g.DrawString(A.number.ToString(), new Font(FontFamily.GenericSerif, 15, FontStyle.Bold), new SolidBrush(Color.White), new PointF(A.vitri.X + 8, A.vitri.Y + 4f));
 				}
 				else
 				{
@@ -60,16 +60,16 @@ namespace Cay_Nhi_Phan
 					{
 						if (A.number > -10)
 						{
-							g.DrawString(A.number.ToString(), new Font(FontFamily.GenericSerif, 15, FontStyle.Bold), new SolidBrush(Color.White), new PointF(A.vitri.X + 6, A.vitri.Y + 8f));
+							g.DrawString(A.number.ToString(), new Font(FontFamily.GenericSerif, 15, FontStyle.Bold), new SolidBrush(Color.White), new PointF(A.vitri.X + 4, A.vitri.Y + 4f));
 						}
 						else
 						{
-							g.DrawString(A.number.ToString(), new Font(FontFamily.GenericSerif, 15, FontStyle.Bold), new SolidBrush(Color.White), new PointF(A.vitri.X + 3, A.vitri.Y + 8f));
+							g.DrawString(A.number.ToString(), new Font(FontFamily.GenericSerif, 15, FontStyle.Bold), new SolidBrush(Color.White), new PointF(A.vitri.X + -1, A.vitri.Y + 4f));
 						}
 					}
 					else
 					{
-						g.DrawString(A.number.ToString(), new Font(FontFamily.GenericSerif, 15, FontStyle.Bold), new SolidBrush(Color.White), new PointF(A.vitri.X-2 , A.vitri.Y + 8f));
+						g.DrawString(A.number.ToString(), new Font(FontFamily.GenericSerif, 15, FontStyle.Bold), new SolidBrush(Color.White), new PointF(A.vitri.X-6 , A.vitri.Y + 4f));
 					}
 				}
 			}
@@ -77,11 +77,11 @@ namespace Cay_Nhi_Phan
 			{
 				if (A.number >= 100)
 				{
-					g.DrawString(A.number.ToString(), new Font(FontFamily.GenericSerif, 15, FontStyle.Bold), new SolidBrush(Color.White), new PointF(A.vitri.X + 3, A.vitri.Y + 8f));
+					g.DrawString(A.number.ToString(), new Font(FontFamily.GenericSerif, 15, FontStyle.Bold), new SolidBrush(Color.White), new PointF(A.vitri.X-1 , A.vitri.Y + 4f));
 				}
 				else
 				{
-					g.DrawString(A.number.ToString(), new Font(FontFamily.GenericSerif, 15, FontStyle.Bold), new SolidBrush(Color.White), new PointF(A.vitri.X + 7, A.vitri.Y + 8f));
+					g.DrawString(A.number.ToString(), new Font(FontFamily.GenericSerif, 15, FontStyle.Bold), new SolidBrush(Color.White), new PointF(A.vitri.X + 4, A.vitri.Y + 4f));
 				}
 			}
 			Main_PictureBox.Image = bitmap;
@@ -93,7 +93,7 @@ namespace Cay_Nhi_Phan
 			{
 				if (A.number >= 0)
 				{
-					g.DrawString(A.number.ToString(), new Font(FontFamily.GenericSerif, 15, FontStyle.Bold), new SolidBrush(Color.White), new PointF(A.vitri.X + 13, A.vitri.Y + 8f));
+					g.DrawString(A.number.ToString(), new Font(FontFamily.GenericSerif, 15, FontStyle.Bold), new SolidBrush(Color.White), new PointF(A.vitri.X + 8, A.vitri.Y + 4f));
 				}
 				else
 				{
@@ -101,16 +101,16 @@ namespace Cay_Nhi_Phan
 					{
 						if (A.number > -10)
 						{
-							g.DrawString(A.number.ToString(), new Font(FontFamily.GenericSerif, 15, FontStyle.Bold), new SolidBrush(Color.White), new PointF(A.vitri.X + 6, A.vitri.Y + 8f));
+							g.DrawString(A.number.ToString(), new Font(FontFamily.GenericSerif, 15, FontStyle.Bold), new SolidBrush(Color.White), new PointF(A.vitri.X + 4, A.vitri.Y + 4f));
 						}
 						else
 						{
-							g.DrawString(A.number.ToString(), new Font(FontFamily.GenericSerif, 15, FontStyle.Bold), new SolidBrush(Color.White), new PointF(A.vitri.X + 3, A.vitri.Y + 8f));
+							g.DrawString(A.number.ToString(), new Font(FontFamily.GenericSerif, 15, FontStyle.Bold), new SolidBrush(Color.White), new PointF(A.vitri.X + -1, A.vitri.Y + 4f));
 						}
 					}
 					else
 					{
-						g.DrawString(A.number.ToString(), new Font(FontFamily.GenericSerif, 15, FontStyle.Bold), new SolidBrush(Color.White), new PointF(A.vitri.X - 2, A.vitri.Y + 8f));
+						g.DrawString(A.number.ToString(), new Font(FontFamily.GenericSerif, 15, FontStyle.Bold), new SolidBrush(Color.White), new PointF(A.vitri.X - 6, A.vitri.Y + 4f));
 					}
 				}
 			}
@@ -118,18 +118,18 @@ namespace Cay_Nhi_Phan
 			{
 				if (A.number >= 100)
 				{
-					g.DrawString(A.number.ToString(), new Font(FontFamily.GenericSerif, 15, FontStyle.Bold), new SolidBrush(Color.White), new PointF(A.vitri.X + 3, A.vitri.Y + 8f));
+					g.DrawString(A.number.ToString(), new Font(FontFamily.GenericSerif, 15, FontStyle.Bold), new SolidBrush(Color.White), new PointF(A.vitri.X - 1, A.vitri.Y + 4f));
 				}
 				else
 				{
-					g.DrawString(A.number.ToString(), new Font(FontFamily.GenericSerif, 15, FontStyle.Bold), new SolidBrush(Color.White), new PointF(A.vitri.X + 7, A.vitri.Y + 8f));
+					g.DrawString(A.number.ToString(), new Font(FontFamily.GenericSerif, 15, FontStyle.Bold), new SolidBrush(Color.White), new PointF(A.vitri.X + 4, A.vitri.Y + 4f));
 				}
 			}
 			Main_PictureBox.Image = bitmap;
 		}
 		public void DrawSearch(class_node A)
 		{
-			g.DrawImage(Cay_Nhi_Phan.Properties.Resources.search, A.vitri.X, A.vitri.Y);
+			g.DrawImage(Cay_Nhi_Phan.Properties.Resources.search, A.vitri.X-5, A.vitri.Y);
 			Main_PictureBox.Image = bitmap;
 		}
 		public void DrawDelete(class_node A)
@@ -214,18 +214,18 @@ namespace Cay_Nhi_Phan
 		public PointF nodeLR(PointF l, int traiphai)
 		{
 			PointF kq = new PointF();
-			int vt_y = ((Convert.ToInt32(l.Y - 20)) + 60) / 60;
+			int vt_y = ((Convert.ToInt32(l.Y - 20)) + 70) / 70;
 			int partwidth = 1024 / (int)Math.Pow(2, (vt_y + 1));
 			if (traiphai == -1)  //tra ve vi tri node con ben trai
 			{
 				kq.X = l.X - partwidth;
-				kq.Y = l.Y + 60;
+				kq.Y = l.Y + 70;
 				return kq;
 			}
 			else  //tra ve vi tri node con ben phai 
 			{
 				kq.X = l.X + partwidth;
-				kq.Y = l.Y + 60;
+				kq.Y = l.Y + 70;
 				return kq;
 			}
 		}
@@ -403,20 +403,20 @@ namespace Cay_Nhi_Phan
 			Info_RichTextBox.AppendText(" Node " + node.number);
 			if (node == Root)
 			{
-				Info_RichTextBox.AppendText(" -  Node gốc ");
+				Info_RichTextBox.AppendText(" -  Node goc ");
 			}
 			else
 			{
 				if (node.left == null && node.right == null)
 				{
-					Info_RichTextBox.AppendText(" -  Node lá ");
+					Info_RichTextBox.AppendText(" -  Node la ");
 				}
 				else
 				{
 					Info_RichTextBox.AppendText(" -  Node trung gian ");
 				}
 			}
-			Info_RichTextBox.AppendText("\n- Hệ số cân bằng: ");
+			Info_RichTextBox.AppendText("\n- He so can bang: ");
 			switch (node.canbang)
 			{
 				case LEFT: Info_RichTextBox.AppendText("LH"); break;
@@ -426,11 +426,11 @@ namespace Cay_Nhi_Phan
 			if (node.left != null)
 				Info_RichTextBox.AppendText("\n- Node.Left: " + node.left.number);
 			else
-				Info_RichTextBox.AppendText("\n- Node.Left rỗng");
+				Info_RichTextBox.AppendText("\n- Node.Left rong");
 			if (node.right != null)
 				Info_RichTextBox.AppendText("\n- Node.Right: " + node.right.number);
 			else
-				Info_RichTextBox.AppendText("\n- Node.Right rỗng");
+				Info_RichTextBox.AppendText("\n- Node.Right rong");
 
 			//Info_RichTextBox.AppendText("\n <RightClick> to delete");
 			Info_RichTextBox.AppendText("\n <Esc> key to hide textbox");
@@ -1129,7 +1129,8 @@ namespace Cay_Nhi_Phan
 				while (N_Temp < Random_NumericUpDown.Value)
 				{
 						Way_RichTextBox.Clear();
-						Way.Clear();				
+						Way.Clear();
+					Way_RichTextBox.AppendText("Da duyet: ");
 						int value = ran.Next(100);
 						StatusInsert = InsertNode(ref Root, value);
 						if (StatusInsert != 0)
@@ -1267,6 +1268,9 @@ namespace Cay_Nhi_Phan
 					case Keys.Escape:
 					Main_PictureBox.Controls.Remove(Info_RichTextBox);
 					break;
+					case Keys.A:
+						Main_PictureBox.Controls.Remove(Info_RichTextBox);
+						break;
 				}
 			}
 		}

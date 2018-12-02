@@ -63,9 +63,9 @@
 			// Main_PictureBox
 			// 
 			this.Main_PictureBox.BackColor = System.Drawing.Color.White;
-			this.Main_PictureBox.Location = new System.Drawing.Point(12, 12);
+			this.Main_PictureBox.Location = new System.Drawing.Point(6, 6);
 			this.Main_PictureBox.Name = "Main_PictureBox";
-			this.Main_PictureBox.Size = new System.Drawing.Size(1070, 510);
+			this.Main_PictureBox.Size = new System.Drawing.Size(1092, 515);
 			this.Main_PictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
 			this.Main_PictureBox.TabIndex = 1;
 			this.Main_PictureBox.TabStop = false;
@@ -240,7 +240,7 @@
 			this.groupBox4.Controls.Add(this.Way_RichTextBox);
 			this.groupBox4.Location = new System.Drawing.Point(342, 532);
 			this.groupBox4.Name = "groupBox4";
-			this.groupBox4.Size = new System.Drawing.Size(556, 119);
+			this.groupBox4.Size = new System.Drawing.Size(756, 119);
 			this.groupBox4.TabIndex = 8;
 			this.groupBox4.TabStop = false;
 			this.groupBox4.Text = "Info";
@@ -311,9 +311,9 @@
 			// 
 			// Way_RichTextBox
 			// 
-			this.Way_RichTextBox.Location = new System.Drawing.Point(170, 8);
+			this.Way_RichTextBox.Location = new System.Drawing.Point(176, 8);
 			this.Way_RichTextBox.Name = "Way_RichTextBox";
-			this.Way_RichTextBox.Size = new System.Drawing.Size(380, 105);
+			this.Way_RichTextBox.Size = new System.Drawing.Size(574, 105);
 			this.Way_RichTextBox.TabIndex = 3;
 			this.Way_RichTextBox.Text = " ";
 			// 
@@ -322,7 +322,7 @@
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.AutoSize = true;
-			this.ClientSize = new System.Drawing.Size(1094, 659);
+			this.ClientSize = new System.Drawing.Size(1104, 659);
 			this.Controls.Add(this.groupBox4);
 			this.Controls.Add(this.groupBox2);
 			this.Controls.Add(this.groupBox1);
