@@ -626,37 +626,46 @@ namespace Cay_Nhi_Phan
 				//Root->info = x
 				class_node Temp = node;
 
-				if (node.left == null)
-				{
-					node = node.right;
-					Res = 2;
-				}
-				else
-				{
-					if (node.right == null)
+				
+					if (node.left == null)
 					{
-						node = node.left;
+						if (node.right != null)
+						{
+							Way_RichTextBox.AppendText("Dung Node " + node.right.number+ " lam phan tu the mang de xoa node " + node.number+"\n");
+						}
+						node = node.right;
 						Res = 2;
 					}
 					else
 					{
-						Res = SearchStandFor(ref Temp,ref node.right);
-						if (Res < 2) return Res;
-						switch (node.canbang)
+						if (node.right == null)
 						{
-							case RIGHT:
-								node.canbang = EQUAL;
-								return 2;
-							case EQUAL:
-								node.canbang = LEFT;
-								return 1;
-							case LEFT:
-								return BalanceRight(ref node);
+							if (node.left != null)
+							{
+								Way_RichTextBox.AppendText("Dung Node " + node.left.number+ " lam phan tu the mang de xoa node " + node.number+"\n");
+							}
+							node = node.left;
+							Res = 2;
 						}
+						else
+						{
+							Res = SearchStandFor(ref Temp, ref node.right);
+							if (Res < 2) return Res;
+							switch (node.canbang)
+							{
+								case RIGHT:
+									node.canbang = EQUAL;
+									return 2;
+								case EQUAL:
+									node.canbang = LEFT;
+									return 1;
+								case LEFT:
+									return BalanceRight(ref node);
+							}
+						}
+						Temp = null;
+						return Res;
 					}
-					Temp = null;
-					return Res;
-				}
 			}
 			else
 			{
@@ -727,7 +736,10 @@ namespace Cay_Nhi_Phan
 						return BalanceRight(ref Temp);
 				}
 			}
-
+			if (node != null)
+			{
+				Way_RichTextBox.AppendText("Dung Node " + node.number + " lam phan tu the mang de xoa Node " + Temp.number + "\n");
+			}
 			Temp.number = node.number;
 			Temp = node;
 			node = node.right;
@@ -912,12 +924,15 @@ namespace Cay_Nhi_Phan
 					int StatusDelNode = DelNode(ref Root, Temp);
 					if (StatusDelNode == 0)
 					{
+						Way_RichTextBox.AppendText("Khong ton tai Node co gia tri " + Temp.ToString() + "! Xoa khong thanh cong !");
 						g.Clear(Color.White);
 						Xd_ViTri(ref Root);
 						VeCay_normal(Root);
+						return;
 					}
 					else
 					{
+						Way_RichTextBox.AppendText("\nXoa thanh cong Node " + Temp.ToString());
 						Xd_ViTriCu(ref Root);
 						Xd_ViTriMoi(ref Root);
 						XacDinhTocDo();
@@ -934,7 +949,7 @@ namespace Cay_Nhi_Phan
 						VeCay_normal(Root);
 						XacDinhSoPhanTu();
 						Input_TextBox.Clear();
-
+						return;
 					}
 				}
 				catch
@@ -1048,20 +1063,22 @@ namespace Cay_Nhi_Phan
 		}
 		private void Main_PictureBox_MouseMove(object sender, MouseEventArgs e)
 		{
-			MyMouseMove(Root, e.Location);		
+			MyMouseMove(Root, e.Location);
+			
 		}
 		private void MyMouseMove(class_node node, PointF p)
 		{
 			if (node != null && ((p.X >= node.vitri.X -5 && p.X <= node.vitri.X + 30) && (p.Y >= node.vitri.Y && p.Y <= node.vitri.Y + 30)))
 			{
 				ShowTextBox(node);
-				return;
+				return ;
 			}
 			if (node != null)
 			{
 				MyMouseMove(node.left, p);
 				MyMouseMove(node.right, p);
 			}
+		
 		}
 		
 		private void Main_PictureBox_MouseClick(object sender, MouseEventArgs e)
@@ -1177,16 +1194,9 @@ namespace Cay_Nhi_Phan
 
 		private void Form1_KeyDown(object sender, KeyEventArgs e)
 		{
-			if (Root != null)
+			if (e.KeyCode == Keys.End)
 			{
-				switch (e.KeyCode)
-				{
-					case Keys.Escape:
-					{
-						Main_PictureBox.Controls.Remove(Info_RichTextBox);
-						break;
-					}
-				}
+				Main_PictureBox.Controls.Remove(Info_RichTextBox);
 			}
 		}
 		#endregion
