@@ -29,6 +29,8 @@ namespace Cay_Nhi_Phan
 		Graphics g;
 		RichTextBox Info_RichTextBox = new RichTextBox();
 		List<int> Way = new List<int>();
+		List<int> RandomList = new List<int>();
+
 		public Form1()
 		{
 			InitializeComponent();
@@ -321,7 +323,7 @@ namespace Cay_Nhi_Phan
 			{
 				Speed_ComboBox.Text = "2";
 			}
-			Speed = (5 - Convert.ToInt32(Speed_ComboBox.Text)) * 10;
+			Speed = (6 - Convert.ToInt32(Speed_ComboBox.Text)) * 10;
 		}
 		private void ShowTextBox(class_node node)
 		{
@@ -359,16 +361,16 @@ namespace Cay_Nhi_Phan
 				case RIGHT: Info_RichTextBox.AppendText("RH"); break;
 			}
 			if (node.left != null)
-				Info_RichTextBox.AppendText("\n- Node pLeft: " + node.left.number);
+				Info_RichTextBox.AppendText("\n- Node.Left: " + node.left.number);
 			else
-				Info_RichTextBox.AppendText("\n- Node pLeft rỗng");
+				Info_RichTextBox.AppendText("\n- Node.Left rỗng");
 			if (node.right != null)
-				Info_RichTextBox.AppendText("\n- Node pRight: " + node.right.number);
+				Info_RichTextBox.AppendText("\n- Node.Right: " + node.right.number);
 			else
-				Info_RichTextBox.AppendText("\n- Node pRight rỗng");
+				Info_RichTextBox.AppendText("\n- Node.Right rỗng");
 
 			//Info_RichTextBox.AppendText("\n <RightClick> to delete");
-			//Info_RichTextBox.AppendText("\n <Esc> key to hide textbox");
+			Info_RichTextBox.AppendText("\n <Esc> key to hide textbox");
 			Main_PictureBox.Controls.Add(Info_RichTextBox);
 		}
 		#endregion
@@ -376,6 +378,7 @@ namespace Cay_Nhi_Phan
 		#region Build Tree 
 		void Rotate_Left_Left(ref class_node node)
 		{
+			Way_RichTextBox.AppendText("\nCay mat can bang, thuc hien quay Left-Left tai Node " + node.number);
 			class_node p;
 			p = node.left;
 			node.left = p.right;
@@ -397,6 +400,7 @@ namespace Cay_Nhi_Phan
 		//cay con phai lech phai
 		void Rotate_Right_Right(ref class_node node)
 		{
+			Way_RichTextBox.AppendText("\nCay mat can bang, thuc hien quay Right-Right tai Node " + node.number);
 			class_node p;
 			p = node.right;
 			node.right = p.left;
@@ -418,6 +422,7 @@ namespace Cay_Nhi_Phan
 		//cay con phai lech trai
 		void Rotate_Right_Left(ref class_node node)
 		{
+			Way_RichTextBox.AppendText("\nCay mat can bang, thuc hien quay Right-Left tai Node " + node.number);
 			class_node p1, p2;
 			p1 = node.right;
 			p2 = p1.left;
@@ -447,6 +452,7 @@ namespace Cay_Nhi_Phan
 		//cay con trai lech phai
 		void Rotate_Left_Right(ref class_node node)
 		{
+			Way_RichTextBox.AppendText("\nCay mat can bang, thuc hien quay Left-Right tai Node " + node.number);
 			class_node p1, p2;
 			p1 = node.left;
 			p2 = p1.right;
@@ -520,6 +526,7 @@ namespace Cay_Nhi_Phan
 			if (node == null)
 			{
 				node = new class_node(number);
+				Way_RichTextBox.AppendText(" -> " + node.number);
 				if (Way.Count != 0)
 				{
 					for (int i = 0; i < Way.Count; i++)
@@ -537,6 +544,7 @@ namespace Cay_Nhi_Phan
 				if (number < node.number)
 				{
 					Way.Add(LEFT);
+					Way_RichTextBox.AppendText(" -> " + node.number);
 					Res = InsertNode(ref node.left, number);
 					if (Res < 2) return Res;
 
@@ -557,6 +565,7 @@ namespace Cay_Nhi_Phan
 				else
 				{
 					Way.Add(RIGHT);
+					Way_RichTextBox.AppendText(" -> " + node.number);
 					Res = InsertNode(ref node.right, number);
 					if (Res < 2) return Res;
 
@@ -862,6 +871,8 @@ namespace Cay_Nhi_Phan
 			g.Clear(Color.White);		
 			Main_PictureBox.Image = bitmap;
 			XacDinhSoPhanTu();
+			Way_RichTextBox.Clear();
+			Main_PictureBox.Controls.Remove(Info_RichTextBox);
 			MessageBox.Show(" Da xoa thanh cong cay! ");
 		}
 
@@ -874,15 +885,18 @@ namespace Cay_Nhi_Phan
 					int Temp = Convert.ToInt32(Input_TextBox.Text);
 					Way.Clear();
 					FindANode(Root, Temp);
+					Input_TextBox.Clear();
 				}
 				catch
 				{
 					MessageBox.Show(" Gia tri nhap khong dung");
+					Input_TextBox.Clear();
 				}
 			}
 			else
 			{
 				MessageBox.Show(" Ban chua nhap gia tri ");
+				Input_TextBox.Clear();
 			}
 		}
 
@@ -892,6 +906,7 @@ namespace Cay_Nhi_Phan
 			{
 				try
 				{
+					Way_RichTextBox.Clear();
 					int Temp = Convert.ToInt32(Input_TextBox.Text);
 					Way.Clear();
 					int StatusDelNode = DelNode(ref Root, Temp);
@@ -919,16 +934,19 @@ namespace Cay_Nhi_Phan
 						VeCay_normal(Root);
 						XacDinhSoPhanTu();
 						Input_TextBox.Clear();
+
 					}
 				}
 				catch
 				{
 					MessageBox.Show(" Gia tri nhap khong dung");
+					Input_TextBox.Clear();
 				}	
 			}
 			else
 			{
 				MessageBox.Show(" Ban chua nhap gia tri ");
+				Input_TextBox.Clear();
 			}
 		}
 
@@ -936,38 +954,46 @@ namespace Cay_Nhi_Phan
 		{
 			if (e.KeyCode == Keys.Enter && Input_TextBox.Text.Length > 0)
 			{
+				Way_RichTextBox.Clear();
+				Way_RichTextBox.AppendText("Da duyet qua cac Node: ");
 				int StatusInsert;
 				try
 				{
 					int Temp = Convert.ToInt32(Input_TextBox.Text);
 					Way.Clear();
 					StatusInsert = InsertNode(ref Root, Temp);
-					if ( StatusInsert == 0)
+					if (StatusInsert == 0)
 					{
 						MessageBox.Show(" Da ton tai gia tri ");
+						Way_RichTextBox.AppendText(" Gia tri ban nhap da ton tai trong cay");
 						return;
+					}
+					else
+					{
+						Way_RichTextBox.AppendText("\nDa them thanh cong Node " + Temp);
+						Xd_ViTriCu(ref Root);
+						Xd_ViTriMoi(ref Root);
+						XacDinhTocDo();
+						for (int i = 0; i < Speed; i++)
+						{
+							DiChuyenCay(ref Root);
+							g.Clear(Color.White);
+							VeCay_normal(Root);
+							Thread.Sleep(2);
+							Application.DoEvents();
+						}
+						g.Clear(Color.White);
+						Xd_ViTri(ref Root);
+						VeCay_normal(Root);
+						XacDinhSoPhanTu();
+						Input_TextBox.Clear();
 					}
 				}
 				catch
 				{
 					MessageBox.Show(" Gia tri nhap khong dung");
+					Way_RichTextBox.AppendText("Ban nhap gia tri khong dung");
 				}
-				Xd_ViTriCu(ref Root);
-				Xd_ViTriMoi(ref Root);
-				XacDinhTocDo();
-				for (int i = 0; i < Speed; i++)
-				{
-					DiChuyenCay(ref Root);
-					g.Clear(Color.White);
-					VeCay_normal(Root);
-					Thread.Sleep(2);
-					Application.DoEvents();
-				}
-				g.Clear(Color.White);
-				Xd_ViTri(ref Root);
-				VeCay_normal(Root);
-				XacDinhSoPhanTu();
-				Input_TextBox.Clear();
 			}
 		}
 	
@@ -975,36 +1001,50 @@ namespace Cay_Nhi_Phan
 		{
 			int N_Temp = 0;			// bien tang so lan random thanh cong de so sanh voi gia tri so lan random duoc chon
 			Random ran = new Random();
+			RandomList.Clear();
 			int StatusInsert ;
 			if (Random_NumericUpDown.Value > 0)
 			{
 				while (N_Temp < Random_NumericUpDown.Value)
 				{
-					Way.Clear();
-					int value = ran.Next(100);
-					StatusInsert = InsertNode(ref Root, value);
-					if (StatusInsert != 0 )
-					{
-						N_Temp ++;
-					}
-					Xd_ViTriCu(ref Root);
-					Xd_ViTriMoi(ref Root);
-					XacDinhTocDo();
-					for (int i = 0; i < Speed; i++)
-					{
-						DiChuyenCay(ref Root);
-						g.Clear(Color.White);
-						VeCay_normal(Root);
-						Thread.Sleep(1);
-						Application.DoEvents();
-					}
-					g.Clear(Color.White);
-					Xd_ViTri(ref Root);
-					VeCay_normal(Root);
-					XacDinhSoPhanTu();
-					Input_TextBox.Clear();
+						Way_RichTextBox.Clear();
+						Way.Clear();				
+						int value = ran.Next(100);
+						StatusInsert = InsertNode(ref Root, value);
+						if (StatusInsert != 0)
+						{
+							N_Temp++;
+							RandomList.Add(value);
+							Way_RichTextBox.AppendText("\nDa them thanh cong Node " + value);
+							Xd_ViTriCu(ref Root);
+							Xd_ViTriMoi(ref Root);
+							XacDinhTocDo();
+							for (int i = 0; i < Speed; i++)
+							{
+								DiChuyenCay(ref Root);
+								g.Clear(Color.White);
+								VeCay_normal(Root);
+								Thread.Sleep(1);
+								Application.DoEvents();
+							}
+							g.Clear(Color.White);
+							Xd_ViTri(ref Root);
+							VeCay_normal(Root);
+							XacDinhSoPhanTu();
+							Input_TextBox.Clear();
+						}
+						else
+						{
+							Way_RichTextBox.AppendText(" Gia tri "+value+"da ton tai trong cay");					
+						}				
 				}
-			}
+				Way_RichTextBox.Clear();
+				Way_RichTextBox.AppendText("Da random va them vao " + N_Temp + " phan tu la: ");
+				for (int i = 0; i < N_Temp; i++)
+				{
+					Way_RichTextBox.AppendText( RandomList[i] + ". ");
+				}
+			}			
 		}
 		private void Main_PictureBox_MouseMove(object sender, MouseEventArgs e)
 		{
@@ -1028,20 +1068,128 @@ namespace Cay_Nhi_Phan
 		{
 			if (e.Button == MouseButtons.Right)
 			{
-
+				g.Clear(Color.White);
+				VeCay_normal(Root);
+				Main_PictureBox.Controls.Remove(Info_RichTextBox);
+				//RightClick(Root,e.Location);
 			}
 		}
-		private void NLR(class_node node)
+		private void RightClick(class_node node, PointF p)
 		{
 
 		}
 		private void NLR_Button_Click(object sender, EventArgs e)
 		{
+			if (Root == null)
+			{
+				MessageBox.Show(" Cay rong! Khong the duyet duoc, xin moi nhap them gia tri vao cay ");
+				return;
+			}
+			else
+			{
+				Way_RichTextBox.Clear();
+				Way_RichTextBox.AppendText("Thi tu duyet NLR se la : ");
+				NLR(Root);
+				Way_RichTextBox.AppendText("End ");
+				MessageBox.Show(" Da duyet NLR xong ! ");
+				g.Clear(Color.White);
+				VeCay_normal(Root);
+			}
+		}
+		private void NLR(class_node node)
+		{
+			if (node != null)
+			{
+				Way_RichTextBox.AppendText(node.number + "->");
+				g.Clear(Color.White);
+				VeCay_normal(Root);
+				DrawSearch(node);
+				Thread.Sleep(1000);
+				Application.DoEvents();
+				NLR(node.left);
+				NLR(node.right);
+			}
+		}
+		private void LNR_Button_Click(object sender, EventArgs e)
+		{
+			if (Root == null)
+			{
+				MessageBox.Show(" Cay rong! Khong the duyet duoc, xin moi nhap them gia tri vao cay ");
+				return;
+			}
+			else
+			{
+				Way_RichTextBox.Clear();
+				Way_RichTextBox.AppendText("Thi tu duyet LNR se la : ");
+				LNR(Root);
+				Way_RichTextBox.AppendText("End ");
+				MessageBox.Show(" Da duyet LNR xong ! ");
+				g.Clear(Color.White);
+				VeCay_normal(Root);
+			}
+		}
+		private void LNR(class_node node)
+		{
+			if (node != null)
+			{
+				LNR(node.left);
+				Way_RichTextBox.AppendText(node.number + "->");
+				g.Clear(Color.White);
+				VeCay_normal(Root);
+				DrawSearch(node);
+				Thread.Sleep(1000);
+				Application.DoEvents();
+				LNR(node.right);
+			}
+		}
+		private void LRN_Button_Click(object sender, EventArgs e)
+		{
+			if (Root == null)
+			{
+				MessageBox.Show(" Cay rong! Khong the duyet duoc, xin moi nhap them gia tri vao cay ");
+				return;
+			}
+			else
+			{
+				Way_RichTextBox.Clear();
+				Way_RichTextBox.AppendText("Thi tu duyet LRN se la : ");
+				LRN(Root);
+				Way_RichTextBox.AppendText("End ");
+				MessageBox.Show(" Da duyet LRN xong ! ");
+				g.Clear(Color.White);
+				VeCay_normal(Root);
+			}
+		}
+		private void LRN(class_node node)
+		{
+			if (node != null)
+			{
+				LRN(node.left);
+				LRN(node.right);
+				Way_RichTextBox.AppendText(node.number + "->");
+				g.Clear(Color.White);
+				VeCay_normal(Root);
+				DrawSearch(node);
+				Thread.Sleep(1000);
+				Application.DoEvents();
+			}
+		}
 
+		private void Form1_KeyDown(object sender, KeyEventArgs e)
+		{
+			if (Root != null)
+			{
+				switch (e.KeyCode)
+				{
+					case Keys.Escape:
+					{
+						Main_PictureBox.Controls.Remove(Info_RichTextBox);
+						break;
+					}
+				}
+			}
 		}
 		#endregion
-
-
 	}
 }
 

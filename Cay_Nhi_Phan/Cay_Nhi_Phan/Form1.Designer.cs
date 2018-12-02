@@ -52,7 +52,7 @@
 			this.The_Height_Tree_Label = new System.Windows.Forms.Label();
 			this.Intermediate_Node_Label = new System.Windows.Forms.Label();
 			this.Leaf_Node_Label = new System.Windows.Forms.Label();
-			this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+			this.Way_RichTextBox = new System.Windows.Forms.RichTextBox();
 			((System.ComponentModel.ISupportInitialize)(this.Main_PictureBox)).BeginInit();
 			this.groupBox1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.Random_NumericUpDown)).BeginInit();
@@ -215,6 +215,7 @@
 			this.LNR_Button.TabIndex = 1;
 			this.LNR_Button.Text = "LNR";
 			this.LNR_Button.UseVisualStyleBackColor = true;
+			this.LNR_Button.Click += new System.EventHandler(this.LNR_Button_Click);
 			// 
 			// LRN_Button
 			// 
@@ -224,6 +225,7 @@
 			this.LRN_Button.TabIndex = 2;
 			this.LRN_Button.Text = "LRN";
 			this.LRN_Button.UseVisualStyleBackColor = true;
+			this.LRN_Button.Click += new System.EventHandler(this.LRN_Button_Click);
 			// 
 			// groupBox4
 			// 
@@ -235,7 +237,7 @@
 			this.groupBox4.Controls.Add(this.The_Height_Tree_Label);
 			this.groupBox4.Controls.Add(this.Intermediate_Node_Label);
 			this.groupBox4.Controls.Add(this.Leaf_Node_Label);
-			this.groupBox4.Controls.Add(this.richTextBox1);
+			this.groupBox4.Controls.Add(this.Way_RichTextBox);
 			this.groupBox4.Location = new System.Drawing.Point(342, 532);
 			this.groupBox4.Name = "groupBox4";
 			this.groupBox4.Size = new System.Drawing.Size(556, 119);
@@ -307,26 +309,27 @@
 			this.Leaf_Node_Label.TabIndex = 4;
 			this.Leaf_Node_Label.Text = "Leaf Node";
 			// 
-			// richTextBox1
+			// Way_RichTextBox
 			// 
-			this.richTextBox1.Location = new System.Drawing.Point(170, 8);
-			this.richTextBox1.Name = "richTextBox1";
-			this.richTextBox1.Size = new System.Drawing.Size(380, 105);
-			this.richTextBox1.TabIndex = 3;
-			this.richTextBox1.Text = "";
+			this.Way_RichTextBox.Location = new System.Drawing.Point(170, 8);
+			this.Way_RichTextBox.Name = "Way_RichTextBox";
+			this.Way_RichTextBox.Size = new System.Drawing.Size(380, 105);
+			this.Way_RichTextBox.TabIndex = 3;
+			this.Way_RichTextBox.Text = " ";
 			// 
 			// Form1
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.AutoSize = true;
-			this.ClientSize = new System.Drawing.Size(1089, 659);
+			this.ClientSize = new System.Drawing.Size(1094, 659);
 			this.Controls.Add(this.groupBox4);
 			this.Controls.Add(this.groupBox2);
 			this.Controls.Add(this.groupBox1);
 			this.Controls.Add(this.Main_PictureBox);
 			this.Name = "Form1";
-			this.Text = "Form1";
+			this.Text = "Demo AVL tree";
+			this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
 			((System.ComponentModel.ISupportInitialize)(this.Main_PictureBox)).EndInit();
 			this.groupBox1.ResumeLayout(false);
 			this.groupBox1.PerformLayout();
@@ -363,7 +366,7 @@
 		private System.Windows.Forms.Label The_Height_Tree_Label;
 		private System.Windows.Forms.Label Intermediate_Node_Label;
 		private System.Windows.Forms.Label Leaf_Node_Label;
-		private System.Windows.Forms.RichTextBox richTextBox1;
+		private System.Windows.Forms.RichTextBox Way_RichTextBox;
 	}
 }
 
