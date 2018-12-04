@@ -1,6 +1,6 @@
 ﻿namespace Cay_Nhi_Phan
 {
-	partial class Form1
+	partial class AVLTree_Form
 	{
 		/// <summary>
 		/// Required designer variable.
@@ -28,22 +28,23 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
+			this.components = new System.ComponentModel.Container();
 			this.Main_PictureBox = new System.Windows.Forms.PictureBox();
 			this.Input_TextBox = new System.Windows.Forms.TextBox();
 			this.Del_Tree_Button = new System.Windows.Forms.Button();
 			this.Speed_ComboBox = new System.Windows.Forms.ComboBox();
-			this.groupBox1 = new System.Windows.Forms.GroupBox();
+			this.Basic_GroupBox = new System.Windows.Forms.GroupBox();
 			this.Speed_Label = new System.Windows.Forms.Label();
 			this.N_Random_Label = new System.Windows.Forms.Label();
 			this.Del_Node_Button = new System.Windows.Forms.Button();
 			this.Random_Button = new System.Windows.Forms.Button();
 			this.Find_Button = new System.Windows.Forms.Button();
 			this.Random_NumericUpDown = new System.Windows.Forms.NumericUpDown();
-			this.groupBox2 = new System.Windows.Forms.GroupBox();
+			this.Order_GroupBox = new System.Windows.Forms.GroupBox();
 			this.NLR_Button = new System.Windows.Forms.Button();
 			this.LNR_Button = new System.Windows.Forms.Button();
 			this.LRN_Button = new System.Windows.Forms.Button();
-			this.groupBox4 = new System.Windows.Forms.GroupBox();
+			this.Info_GroupBox = new System.Windows.Forms.GroupBox();
 			this.Total_Node_Label = new System.Windows.Forms.Label();
 			this.The_Height_Tree_TextBox = new System.Windows.Forms.TextBox();
 			this.Total_Intermediate_Node_TextBox = new System.Windows.Forms.TextBox();
@@ -53,11 +54,14 @@
 			this.Intermediate_Node_Label = new System.Windows.Forms.Label();
 			this.Leaf_Node_Label = new System.Windows.Forms.Label();
 			this.Way_RichTextBox = new System.Windows.Forms.RichTextBox();
+			this.Delete_ContextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
+			this.Delete_ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			((System.ComponentModel.ISupportInitialize)(this.Main_PictureBox)).BeginInit();
-			this.groupBox1.SuspendLayout();
+			this.Basic_GroupBox.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.Random_NumericUpDown)).BeginInit();
-			this.groupBox2.SuspendLayout();
-			this.groupBox4.SuspendLayout();
+			this.Order_GroupBox.SuspendLayout();
+			this.Info_GroupBox.SuspendLayout();
+			this.Delete_ContextMenuStrip.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// Main_PictureBox
@@ -106,23 +110,23 @@
 			this.Speed_ComboBox.Size = new System.Drawing.Size(66, 21);
 			this.Speed_ComboBox.TabIndex = 4;
 			// 
-			// groupBox1
+			// Basic_GroupBox
 			// 
-			this.groupBox1.Controls.Add(this.Speed_Label);
-			this.groupBox1.Controls.Add(this.Speed_ComboBox);
-			this.groupBox1.Controls.Add(this.N_Random_Label);
-			this.groupBox1.Controls.Add(this.Del_Node_Button);
-			this.groupBox1.Controls.Add(this.Random_Button);
-			this.groupBox1.Controls.Add(this.Find_Button);
-			this.groupBox1.Controls.Add(this.Del_Tree_Button);
-			this.groupBox1.Controls.Add(this.Random_NumericUpDown);
-			this.groupBox1.Controls.Add(this.Input_TextBox);
-			this.groupBox1.Location = new System.Drawing.Point(12, 532);
-			this.groupBox1.Name = "groupBox1";
-			this.groupBox1.Size = new System.Drawing.Size(230, 118);
-			this.groupBox1.TabIndex = 5;
-			this.groupBox1.TabStop = false;
-			this.groupBox1.Text = "Basic";
+			this.Basic_GroupBox.Controls.Add(this.Speed_Label);
+			this.Basic_GroupBox.Controls.Add(this.Speed_ComboBox);
+			this.Basic_GroupBox.Controls.Add(this.N_Random_Label);
+			this.Basic_GroupBox.Controls.Add(this.Del_Node_Button);
+			this.Basic_GroupBox.Controls.Add(this.Random_Button);
+			this.Basic_GroupBox.Controls.Add(this.Find_Button);
+			this.Basic_GroupBox.Controls.Add(this.Del_Tree_Button);
+			this.Basic_GroupBox.Controls.Add(this.Random_NumericUpDown);
+			this.Basic_GroupBox.Controls.Add(this.Input_TextBox);
+			this.Basic_GroupBox.Location = new System.Drawing.Point(12, 532);
+			this.Basic_GroupBox.Name = "Basic_GroupBox";
+			this.Basic_GroupBox.Size = new System.Drawing.Size(230, 118);
+			this.Basic_GroupBox.TabIndex = 5;
+			this.Basic_GroupBox.TabStop = false;
+			this.Basic_GroupBox.Text = "Basic";
 			// 
 			// Speed_Label
 			// 
@@ -185,17 +189,17 @@
             0,
             0});
 			// 
-			// groupBox2
+			// Order_GroupBox
 			// 
-			this.groupBox2.Controls.Add(this.NLR_Button);
-			this.groupBox2.Controls.Add(this.LNR_Button);
-			this.groupBox2.Controls.Add(this.LRN_Button);
-			this.groupBox2.Location = new System.Drawing.Point(248, 532);
-			this.groupBox2.Name = "groupBox2";
-			this.groupBox2.Size = new System.Drawing.Size(88, 119);
-			this.groupBox2.TabIndex = 6;
-			this.groupBox2.TabStop = false;
-			this.groupBox2.Text = "Order ";
+			this.Order_GroupBox.Controls.Add(this.NLR_Button);
+			this.Order_GroupBox.Controls.Add(this.LNR_Button);
+			this.Order_GroupBox.Controls.Add(this.LRN_Button);
+			this.Order_GroupBox.Location = new System.Drawing.Point(248, 532);
+			this.Order_GroupBox.Name = "Order_GroupBox";
+			this.Order_GroupBox.Size = new System.Drawing.Size(88, 119);
+			this.Order_GroupBox.TabIndex = 6;
+			this.Order_GroupBox.TabStop = false;
+			this.Order_GroupBox.Text = "Order ";
 			// 
 			// NLR_Button
 			// 
@@ -209,7 +213,7 @@
 			// 
 			// LNR_Button
 			// 
-			this.LNR_Button.Location = new System.Drawing.Point(6, 48);
+			this.LNR_Button.Location = new System.Drawing.Point(6, 53);
 			this.LNR_Button.Name = "LNR_Button";
 			this.LNR_Button.Size = new System.Drawing.Size(75, 23);
 			this.LNR_Button.TabIndex = 1;
@@ -219,7 +223,7 @@
 			// 
 			// LRN_Button
 			// 
-			this.LRN_Button.Location = new System.Drawing.Point(6, 78);
+			this.LRN_Button.Location = new System.Drawing.Point(6, 87);
 			this.LRN_Button.Name = "LRN_Button";
 			this.LRN_Button.Size = new System.Drawing.Size(75, 23);
 			this.LRN_Button.TabIndex = 2;
@@ -227,23 +231,23 @@
 			this.LRN_Button.UseVisualStyleBackColor = true;
 			this.LRN_Button.Click += new System.EventHandler(this.LRN_Button_Click);
 			// 
-			// groupBox4
+			// Info_GroupBox
 			// 
-			this.groupBox4.Controls.Add(this.Total_Node_Label);
-			this.groupBox4.Controls.Add(this.The_Height_Tree_TextBox);
-			this.groupBox4.Controls.Add(this.Total_Intermediate_Node_TextBox);
-			this.groupBox4.Controls.Add(this.Total_Leaf_Node_TextBox);
-			this.groupBox4.Controls.Add(this.Total_Node_TextBox);
-			this.groupBox4.Controls.Add(this.The_Height_Tree_Label);
-			this.groupBox4.Controls.Add(this.Intermediate_Node_Label);
-			this.groupBox4.Controls.Add(this.Leaf_Node_Label);
-			this.groupBox4.Controls.Add(this.Way_RichTextBox);
-			this.groupBox4.Location = new System.Drawing.Point(342, 532);
-			this.groupBox4.Name = "groupBox4";
-			this.groupBox4.Size = new System.Drawing.Size(756, 119);
-			this.groupBox4.TabIndex = 8;
-			this.groupBox4.TabStop = false;
-			this.groupBox4.Text = "Info";
+			this.Info_GroupBox.Controls.Add(this.Total_Node_Label);
+			this.Info_GroupBox.Controls.Add(this.The_Height_Tree_TextBox);
+			this.Info_GroupBox.Controls.Add(this.Total_Intermediate_Node_TextBox);
+			this.Info_GroupBox.Controls.Add(this.Total_Leaf_Node_TextBox);
+			this.Info_GroupBox.Controls.Add(this.Total_Node_TextBox);
+			this.Info_GroupBox.Controls.Add(this.The_Height_Tree_Label);
+			this.Info_GroupBox.Controls.Add(this.Intermediate_Node_Label);
+			this.Info_GroupBox.Controls.Add(this.Leaf_Node_Label);
+			this.Info_GroupBox.Controls.Add(this.Way_RichTextBox);
+			this.Info_GroupBox.Location = new System.Drawing.Point(342, 532);
+			this.Info_GroupBox.Name = "Info_GroupBox";
+			this.Info_GroupBox.Size = new System.Drawing.Size(756, 119);
+			this.Info_GroupBox.TabIndex = 8;
+			this.Info_GroupBox.TabStop = false;
+			this.Info_GroupBox.Text = "Info";
 			// 
 			// Total_Node_Label
 			// 
@@ -317,26 +321,42 @@
 			this.Way_RichTextBox.TabIndex = 3;
 			this.Way_RichTextBox.Text = " ";
 			// 
-			// Form1
+			// Delete_ContextMenuStrip
+			// 
+			this.Delete_ContextMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.Delete_ToolStripMenuItem});
+			this.Delete_ContextMenuStrip.Name = "contextMenuStrip1";
+			this.Delete_ContextMenuStrip.Size = new System.Drawing.Size(94, 22);
+			// 
+			// Delete_ToolStripMenuItem
+			// 
+			this.Delete_ToolStripMenuItem.Image = Cay_Nhi_Phan.Properties.Resources.delete;
+			this.Delete_ToolStripMenuItem.Name = "Delete_ToolStripMenuItem";
+			this.Delete_ToolStripMenuItem.Size = new System.Drawing.Size(94, 22);
+			this.Delete_ToolStripMenuItem.Text = "Delete";
+			// 
+			// AVLTree_Form
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.AutoSize = true;
 			this.ClientSize = new System.Drawing.Size(1104, 659);
-			this.Controls.Add(this.groupBox4);
-			this.Controls.Add(this.groupBox2);
-			this.Controls.Add(this.groupBox1);
+			this.Controls.Add(this.Info_GroupBox);
+			this.Controls.Add(this.Order_GroupBox);
+			this.Controls.Add(this.Basic_GroupBox);
 			this.Controls.Add(this.Main_PictureBox);
-			this.Name = "Form1";
+			this.Cursor = System.Windows.Forms.Cursors.Default;
+			this.KeyPreview = true;
+			this.Name = "AVLTree_Form";
 			this.Text = "Demo AVL tree";
 			this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
 			((System.ComponentModel.ISupportInitialize)(this.Main_PictureBox)).EndInit();
-			this.groupBox1.ResumeLayout(false);
-			this.groupBox1.PerformLayout();
+			this.Basic_GroupBox.ResumeLayout(false);
+			this.Basic_GroupBox.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.Random_NumericUpDown)).EndInit();
-			this.groupBox2.ResumeLayout(false);
-			this.groupBox4.ResumeLayout(false);
-			this.groupBox4.PerformLayout();
+			this.Order_GroupBox.ResumeLayout(false);
+			this.Info_GroupBox.ResumeLayout(false);
+			this.Info_GroupBox.PerformLayout();
+			this.Delete_ContextMenuStrip.ResumeLayout(false);
 			this.ResumeLayout(false);
 
 		}
@@ -346,9 +366,9 @@
 		private System.Windows.Forms.TextBox Input_TextBox;
 		private System.Windows.Forms.Button Del_Tree_Button;
 		private System.Windows.Forms.ComboBox Speed_ComboBox;
-		private System.Windows.Forms.GroupBox groupBox1;
-		private System.Windows.Forms.GroupBox groupBox2;
-		private System.Windows.Forms.GroupBox groupBox4;
+		private System.Windows.Forms.GroupBox Basic_GroupBox;
+		private System.Windows.Forms.GroupBox Order_GroupBox;
+		private System.Windows.Forms.GroupBox Info_GroupBox;
 		private System.Windows.Forms.Button Find_Button;
 		private System.Windows.Forms.NumericUpDown Random_NumericUpDown;
 		private System.Windows.Forms.Button Del_Node_Button;
@@ -367,6 +387,8 @@
 		private System.Windows.Forms.Label Intermediate_Node_Label;
 		private System.Windows.Forms.Label Leaf_Node_Label;
 		private System.Windows.Forms.RichTextBox Way_RichTextBox;
+		private System.Windows.Forms.ContextMenuStrip Delete_ContextMenuStrip;
+		private System.Windows.Forms.ToolStripMenuItem Delete_ToolStripMenuItem;
 	}
 }
 

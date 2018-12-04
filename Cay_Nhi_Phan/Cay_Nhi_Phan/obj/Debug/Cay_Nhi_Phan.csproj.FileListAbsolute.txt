@@ -9,7 +9,6 @@ E:\Do_An\Cay_Nhi_Phan\Cay_Nhi_Phan\obj\Debug\Cay_Nhi_Phan.pdb
 E:\Do_An\Cay_Nhi_Phan\Cay_Nhi_Phan\obj\Debug\Cay_Nhi_Phan.Form1.resources
 E:\Do_An\Cay_Nhi_Phan\Cay_Nhi_Phan\obj\Debug\Cay_Nhi_Phan.csprojAssemblyReference.cache
 C:\Users\Hung Doan\Documents\GitHub\C-y-nh-ph-n-t-m-ki-m-\Cay_Nhi_Phan\Cay_Nhi_Phan\obj\Debug\Cay_Nhi_Phan.csprojAssemblyReference.cache
-C:\Users\Hung Doan\Documents\GitHub\C-y-nh-ph-n-t-m-ki-m-\Cay_Nhi_Phan\Cay_Nhi_Phan\obj\Debug\Cay_Nhi_Phan.Form1.resources
 C:\Users\Hung Doan\Documents\GitHub\C-y-nh-ph-n-t-m-ki-m-\Cay_Nhi_Phan\Cay_Nhi_Phan\obj\Debug\Cay_Nhi_Phan.Properties.Resources.resources
 C:\Users\Hung Doan\Documents\GitHub\C-y-nh-ph-n-t-m-ki-m-\Cay_Nhi_Phan\Cay_Nhi_Phan\obj\Debug\Cay_Nhi_Phan.csproj.GenerateResource.cache
 C:\Users\Hung Doan\Documents\GitHub\C-y-nh-ph-n-t-m-ki-m-\Cay_Nhi_Phan\Cay_Nhi_Phan\obj\Debug\Cay_Nhi_Phan.csproj.CoreCompileInputs.cache
@@ -18,3 +17,4 @@ C:\Users\Hung Doan\Documents\GitHub\C-y-nh-ph-n-t-m-ki-m-\Cay_Nhi_Phan\Cay_Nhi_P
 C:\Users\Hung Doan\Documents\GitHub\C-y-nh-ph-n-t-m-ki-m-\Cay_Nhi_Phan\Cay_Nhi_Phan\bin\Debug\Cay_Nhi_Phan.exe.config
 C:\Users\Hung Doan\Documents\GitHub\C-y-nh-ph-n-t-m-ki-m-\Cay_Nhi_Phan\Cay_Nhi_Phan\bin\Debug\Cay_Nhi_Phan.exe
 C:\Users\Hung Doan\Documents\GitHub\C-y-nh-ph-n-t-m-ki-m-\Cay_Nhi_Phan\Cay_Nhi_Phan\bin\Debug\Cay_Nhi_Phan.pdb
+C:\Users\Hung Doan\Documents\GitHub\C-y-nh-ph-n-t-m-ki-m-\Cay_Nhi_Phan\Cay_Nhi_Phan\obj\Debug\Cay_Nhi_Phan.AVLTree_Form.resources
