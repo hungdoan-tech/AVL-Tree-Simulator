@@ -385,22 +385,16 @@ namespace Cay_Nhi_Phan
 		private void ShowTextBox(class_node node)
 		{
 			Info_RichTextBox.Clear();
-			if ((Convert.ToInt32(node.vitri.X + 200) >= Main_PictureBox.Width) || (Convert.ToInt32(node.vitri.Y + 100) >= Main_PictureBox.Height))
+			if ((Convert.ToInt32(node.vitri.X + 200) >= Main_PictureBox.Width) || (Convert.ToInt32(node.vitri.Y + 150) >= Main_PictureBox.Height))
 			{
-				Info_RichTextBox.Location = new Point(Convert.ToInt32(node.vitri.X - 50), Convert.ToInt32(node.vitri.Y - 100));
+				Info_RichTextBox.Location = new Point(Convert.ToInt32(node.vitri.X - 50), Convert.ToInt32(node.vitri.Y - 150));
 			}
 			else
 			{
-				if ((Convert.ToInt32(node.vitri.X - 100) >= 0) || (Convert.ToInt32(node.vitri.Y - 100) >= 0))
-				{
+				
 					Info_RichTextBox.Location = new Point(Convert.ToInt32(node.vitri.X + 50), Convert.ToInt32(node.vitri.Y + 50));
-				}
-				else
-				{
-					Info_RichTextBox.Location = new Point(Convert.ToInt32(node.vitri.X + 50), Convert.ToInt32(node.vitri.Y + 50));
-				}
 			}
-			Info_RichTextBox.Size = new Size(160, 84);
+			Info_RichTextBox.Size = new Size(180, 130);
 			Info_RichTextBox.AppendText(" Node " + node.number);
 			if (node == Root)
 			{
@@ -433,8 +427,8 @@ namespace Cay_Nhi_Phan
 			else
 				Info_RichTextBox.AppendText("\n- Node.Right rong");
 
-			//Info_RichTextBox.AppendText("\n <RightClick> to delete");
-			Info_RichTextBox.AppendText("\n Move out the node and press <Esc> key to hide textbox");
+			Info_RichTextBox.AppendText("\n\n <RightClick> to delete that node");
+			Info_RichTextBox.AppendText("\n\n Move out the node and press <Esc> key to hide textbox");
 			Main_PictureBox.Controls.Add(Info_RichTextBox);
 		}
 		#endregion
@@ -790,7 +784,7 @@ namespace Cay_Nhi_Phan
 				VeCay_normal(Root);
 				DrawDelete(node);
 
-				Way_RichTextBox.AppendText("Xoa thanh cong node " + Node_Temp.number);
+				Way_RichTextBox.AppendText("Xoa thanh cong node \n" + Node_Temp.number);
 				MessageBox.Show("Xoa thanh cong");
 
 				//Root->info = x
@@ -1322,10 +1316,10 @@ namespace Cay_Nhi_Phan
 					}
 				}
 				Way_RichTextBox.Clear();
-				Way_RichTextBox.AppendText("Da random va them vao " + N_Temp + " phan tu la: ");
+				Way_RichTextBox.AppendText("Da random va them vao " + N_Temp + " phan tu la:          ");
 				for (int i = 0; i < N_Temp; i++)
 				{
-					Way_RichTextBox.AppendText(RandomList[i] + ". ");
+					Way_RichTextBox.AppendText(RandomList[i] + "  ");
 				}
 			}
 		}
@@ -1360,8 +1354,8 @@ namespace Cay_Nhi_Phan
 			if (node != null && ((p.X >= node.vitri.X && p.X <= node.vitri.X + 34) && (p.Y >= node.vitri.Y && p.Y <= node.vitri.Y + 34)))
 			{
 				Delete_ContextMenuStrip.Show();
-				Delete_ContextMenuStrip.Top = Convert.ToInt32(node.vitri.X+60);
-				Delete_ContextMenuStrip.Left = Convert.ToInt32(node.vitri.Y -180);
+				Delete_ContextMenuStrip.Top = Convert.ToInt32(node.vitri.X );
+				Delete_ContextMenuStrip.Left = Convert.ToInt32(node.vitri.Y-50);
 				
 				g.Clear(Color.White);
 				VeCay_normal(Root);
@@ -1385,6 +1379,8 @@ namespace Cay_Nhi_Phan
 				{
 					case Keys.Escape:
 					Main_PictureBox.Controls.Remove(Info_RichTextBox);
+					g.Clear(Color.White);
+					VeCay_normal(Root);
 					return;
 				}
 			}
@@ -1417,8 +1413,6 @@ namespace Cay_Nhi_Phan
 			}
 		}
 		#endregion
-
-
 	}
 }
 
