@@ -24,6 +24,7 @@ namespace Cay_Nhi_Phan
 		int The_Height_Tree = 0;         // chieu cao cay
 
 		public class_node Root;
+		public class_node Node_Temp; // node dung de dung tam khi bat su kien click Delete_ContextMenuStrip
 		int Speed;
 		Bitmap bitmap;
 		Graphics g;
@@ -776,7 +777,110 @@ namespace Cay_Nhi_Phan
 			}
 			return 2;
 		}
+		private int DelNode_Special(ref class_node node, int number)
+		{
+			int Res;
+			
+		
+			if (node.number == number)
+			{
 
+		
+				g.Clear(Color.White);
+				VeCay_normal(Root);
+				DrawDelete(node);
+
+				Way_RichTextBox.AppendText("Xoa thanh cong node " + Node_Temp.number);
+				MessageBox.Show("Xoa thanh cong");
+
+				//Root->info = x
+				class_node Temp = node;
+
+
+				if (node.left == null)
+				{
+					if (node.right != null)
+					{
+						Way_RichTextBox.AppendText("Dung Node " + node.right.number + " lam phan tu the mang de xoa node " + node.number + "\n");
+					}
+					node = node.right;
+					Res = 2;
+				}
+				else
+				{
+					if (node.right == null)
+					{
+						if (node.left != null)
+						{
+							Way_RichTextBox.AppendText("Dung Node " + node.left.number + " lam phan tu the mang de xoa node " + node.number + "\n");
+						}
+						node = node.left;
+						Res = 2;
+					}
+					else
+					{
+						Res = SearchStandFor(ref Temp, ref node.right);
+						if (Res < 2) return Res;
+						switch (node.canbang)
+						{
+							case RIGHT:
+								node.canbang = EQUAL;
+								return 2;
+							case EQUAL:
+								node.canbang = LEFT;
+								return 1;
+							case LEFT:
+								return BalanceLeft(ref node);
+						}
+					}
+					Temp = null;
+					return Res;
+				}
+			}
+			else
+			{
+				//Root->info > x => Sang ben trai tim xoa
+				if (node.number > number)
+				{
+					
+					Res = DelNode_Special(ref node.left, number);
+					if (Res < 2) return Res;
+
+					//Chieu cao bi thay doi
+					switch (node.canbang)
+					{
+						case LEFT:
+							node.canbang = EQUAL;
+							return 2;
+						case EQUAL:
+							node.canbang = RIGHT;
+							return 1;
+						case RIGHT:
+							return BalanceRight(ref node);
+					}
+				}
+
+				if (node.number < number)
+				{
+					Res = DelNode_Special(ref node.right, number);
+
+					if (Res < 2) return Res;
+
+					switch (node.canbang)
+					{
+						case LEFT:
+							return BalanceLeft(ref node);
+						case EQUAL:
+							node.canbang = LEFT;
+							return 1;
+						case RIGHT:
+							node.canbang = EQUAL;
+							return 2;
+					}
+				}
+			}
+			return 2;
+		}
 		//Tim node the mang
 		private int SearchStandFor(ref class_node Temp, ref class_node node)
 		{
@@ -1261,11 +1365,7 @@ namespace Cay_Nhi_Phan
 				g.Clear(Color.White);
 				VeCay_normal(Root);
 				DrawNodeRed(node);
-				ToolStripMenuItem Delete_ToolStripMenuItem = new ToolStripMenuItem();
-				Delete_ToolStripMenuItem.Size = new System.Drawing.Size(94, 22);
-				Delete_ToolStripMenuItem.Image = Cay_Nhi_Phan.Properties.Resources.delete;
-				Delete_ToolStripMenuItem.Text = "Xoa";
-				Delete_ContextMenuStrip.Items.Add(Delete_ToolStripMenuItem);
+				Node_Temp = node;
 				return;
 			}
 			if (node != null)
@@ -1288,7 +1388,36 @@ namespace Cay_Nhi_Phan
 				}
 			}
 		}
+		private void Delete_ToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			if (Root != null)
+			{
+				Way_RichTextBox.Clear();
+				DelNode_Special(ref Root,Node_Temp.number);
+				Xd_ViTriCu(ref Root);
+				Xd_ViTriMoi(ref Root);
+				XacDinhTocDo();
+				for (int i = 0; i < Speed; i++)
+				{
+					DiChuyenCay(ref Root);
+					g.Clear(Color.White);
+					VeCay_normal(Root);
+					Thread.Sleep(2);
+					Application.DoEvents();
+				}
+				g.Clear(Color.White);
+				Xd_ViTri(ref Root);
+				VeCay_normal(Root);
+				XacDinhSoPhanTu();
+			}
+			else
+			{
+				MessageBox.Show("Cay rong ! ");
+			}
+		}
 		#endregion
+
+
 	}
 }
 

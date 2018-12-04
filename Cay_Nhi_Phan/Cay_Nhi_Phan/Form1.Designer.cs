@@ -325,15 +325,16 @@
 			// 
 			this.Delete_ContextMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.Delete_ToolStripMenuItem});
-			this.Delete_ContextMenuStrip.Name = "contextMenuStrip1";
-			this.Delete_ContextMenuStrip.Size = new System.Drawing.Size(94, 22);
+			this.Delete_ContextMenuStrip.Name = "Delete_ContextMenuStrip";
+			this.Delete_ContextMenuStrip.Size = new System.Drawing.Size(181, 48);
 			// 
 			// Delete_ToolStripMenuItem
 			// 
-			this.Delete_ToolStripMenuItem.Image = Cay_Nhi_Phan.Properties.Resources.delete;
+			this.Delete_ToolStripMenuItem.Image = global::Cay_Nhi_Phan.Properties.Resources.delete;
 			this.Delete_ToolStripMenuItem.Name = "Delete_ToolStripMenuItem";
-			this.Delete_ToolStripMenuItem.Size = new System.Drawing.Size(94, 22);
+			this.Delete_ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
 			this.Delete_ToolStripMenuItem.Text = "Delete";
+			this.Delete_ToolStripMenuItem.Click += new System.EventHandler(this.Delete_ToolStripMenuItem_Click);
 			// 
 			// AVLTree_Form
 			// 
