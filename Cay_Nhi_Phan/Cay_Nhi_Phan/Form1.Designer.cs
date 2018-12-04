@@ -54,8 +54,8 @@
 			this.Intermediate_Node_Label = new System.Windows.Forms.Label();
 			this.Leaf_Node_Label = new System.Windows.Forms.Label();
 			this.Way_RichTextBox = new System.Windows.Forms.RichTextBox();
-			this.Delete_ContextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
 			this.Delete_ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.Delete_ContextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
 			((System.ComponentModel.ISupportInitialize)(this.Main_PictureBox)).BeginInit();
 			this.Basic_GroupBox.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.Random_NumericUpDown)).BeginInit();
@@ -321,20 +321,22 @@
 			this.Way_RichTextBox.TabIndex = 3;
 			this.Way_RichTextBox.Text = " ";
 			// 
+			// Delete_ToolStripMenuItem
+			// 
+			
+			this.Delete_ToolStripMenuItem.Image = global::Cay_Nhi_Phan.Properties.Resources.delete;
+			this.Delete_ToolStripMenuItem.Name = "Delete_ToolStripMenuItem";
+			this.Delete_ToolStripMenuItem.Size = new System.Drawing.Size(110, 48);
+			this.Delete_ToolStripMenuItem.Text = "Delete";
+			this.Delete_ToolStripMenuItem.Click += new System.EventHandler(this.Delete_ToolStripMenuItem_Click);
+			// 
 			// Delete_ContextMenuStrip
 			// 
+			this.Delete_ContextMenuStrip.AutoSize = false;
 			this.Delete_ContextMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.Delete_ToolStripMenuItem});
 			this.Delete_ContextMenuStrip.Name = "Delete_ContextMenuStrip";
-			this.Delete_ContextMenuStrip.Size = new System.Drawing.Size(181, 48);
-			// 
-			// Delete_ToolStripMenuItem
-			// 
-			this.Delete_ToolStripMenuItem.Image = global::Cay_Nhi_Phan.Properties.Resources.delete;
-			this.Delete_ToolStripMenuItem.Name = "Delete_ToolStripMenuItem";
-			this.Delete_ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-			this.Delete_ToolStripMenuItem.Text = "Delete";
-			this.Delete_ToolStripMenuItem.Click += new System.EventHandler(this.Delete_ToolStripMenuItem_Click);
+			this.Delete_ContextMenuStrip.Size = new System.Drawing.Size(110, 48);
 			// 
 			// AVLTree_Form
 			// 
@@ -388,8 +390,8 @@
 		private System.Windows.Forms.Label Intermediate_Node_Label;
 		private System.Windows.Forms.Label Leaf_Node_Label;
 		private System.Windows.Forms.RichTextBox Way_RichTextBox;
-		private System.Windows.Forms.ContextMenuStrip Delete_ContextMenuStrip;
 		private System.Windows.Forms.ToolStripMenuItem Delete_ToolStripMenuItem;
+		private System.Windows.Forms.ContextMenuStrip Delete_ContextMenuStrip;
 	}
 }
 

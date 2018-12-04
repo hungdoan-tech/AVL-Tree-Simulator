@@ -380,7 +380,7 @@ namespace Cay_Nhi_Phan
 			{
 				Speed_ComboBox.Text = "2";
 			}
-			Speed = (6 - Convert.ToInt32(Speed_ComboBox.Text)) * 10;
+			Speed = (5 - Convert.ToInt32(Speed_ComboBox.Text)) * 10;
 		}
 		private void ShowTextBox(class_node node)
 		{
@@ -1360,8 +1360,9 @@ namespace Cay_Nhi_Phan
 			if (node != null && ((p.X >= node.vitri.X && p.X <= node.vitri.X + 34) && (p.Y >= node.vitri.Y && p.Y <= node.vitri.Y + 34)))
 			{
 				Delete_ContextMenuStrip.Show();
-				Delete_ContextMenuStrip.Top = Convert.ToInt32(p.X + 60);
-				Delete_ContextMenuStrip.Left = Convert.ToInt32(p.Y + 185);
+				Delete_ContextMenuStrip.Top = Convert.ToInt32(node.vitri.X+60);
+				Delete_ContextMenuStrip.Left = Convert.ToInt32(node.vitri.Y -180);
+				
 				g.Clear(Color.White);
 				VeCay_normal(Root);
 				DrawNodeRed(node);
@@ -1402,7 +1403,7 @@ namespace Cay_Nhi_Phan
 					DiChuyenCay(ref Root);
 					g.Clear(Color.White);
 					VeCay_normal(Root);
-					Thread.Sleep(2);
+					Thread.Sleep(1);
 					Application.DoEvents();
 				}
 				g.Clear(Color.White);
