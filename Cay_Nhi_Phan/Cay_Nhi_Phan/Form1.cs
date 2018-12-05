@@ -793,10 +793,8 @@ namespace Cay_Nhi_Phan
 
 				if (node.left == null)
 				{
-					if (node.right != null)
-					{
+				
 						Way_RichTextBox.AppendText("Dung Node " + node.right.number + " lam phan tu the mang de xoa node " + node.number + "\n");
-					}
 					node = node.right;
 					Res = 2;
 				}
@@ -1354,7 +1352,7 @@ namespace Cay_Nhi_Phan
 			if (node != null && ((p.X >= node.vitri.X && p.X <= node.vitri.X + 34) && (p.Y >= node.vitri.Y && p.Y <= node.vitri.Y + 34)))
 			{
 				Delete_ContextMenuStrip.Show();
-				Delete_ContextMenuStrip.Top = Convert.ToInt32(node.vitri.X );
+				Delete_ContextMenuStrip.Top = Convert.ToInt32(node.vitri.X);
 				Delete_ContextMenuStrip.Left = Convert.ToInt32(node.vitri.Y-50);
 				
 				g.Clear(Color.White);
@@ -1402,6 +1400,7 @@ namespace Cay_Nhi_Phan
 					Thread.Sleep(1);
 					Application.DoEvents();
 				}
+				Main_PictureBox.Controls.Remove(Info_RichTextBox);
 				g.Clear(Color.White);
 				Xd_ViTri(ref Root);
 				VeCay_normal(Root);
