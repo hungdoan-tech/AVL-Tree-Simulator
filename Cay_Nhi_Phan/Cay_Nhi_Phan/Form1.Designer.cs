@@ -56,6 +56,7 @@
 			this.Way_RichTextBox = new System.Windows.Forms.RichTextBox();
 			this.Delete_ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.Delete_ContextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
+			this.Compare_CheckBox = new System.Windows.Forms.CheckBox();
 			((System.ComponentModel.ISupportInitialize)(this.Main_PictureBox)).BeginInit();
 			this.Basic_GroupBox.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.Random_NumericUpDown)).BeginInit();
@@ -89,7 +90,7 @@
 			// 
 			// Del_Tree_Button
 			// 
-			this.Del_Tree_Button.Location = new System.Drawing.Point(143, 93);
+			this.Del_Tree_Button.Location = new System.Drawing.Point(229, 92);
 			this.Del_Tree_Button.Name = "Del_Tree_Button";
 			this.Del_Tree_Button.Size = new System.Drawing.Size(75, 23);
 			this.Del_Tree_Button.TabIndex = 3;
@@ -112,6 +113,7 @@
 			// 
 			// Basic_GroupBox
 			// 
+			this.Basic_GroupBox.Controls.Add(this.Compare_CheckBox);
 			this.Basic_GroupBox.Controls.Add(this.Speed_Label);
 			this.Basic_GroupBox.Controls.Add(this.Speed_ComboBox);
 			this.Basic_GroupBox.Controls.Add(this.N_Random_Label);
@@ -123,7 +125,7 @@
 			this.Basic_GroupBox.Controls.Add(this.Input_TextBox);
 			this.Basic_GroupBox.Location = new System.Drawing.Point(12, 532);
 			this.Basic_GroupBox.Name = "Basic_GroupBox";
-			this.Basic_GroupBox.Size = new System.Drawing.Size(230, 118);
+			this.Basic_GroupBox.Size = new System.Drawing.Size(319, 118);
 			this.Basic_GroupBox.TabIndex = 5;
 			this.Basic_GroupBox.TabStop = false;
 			this.Basic_GroupBox.Text = "Basic";
@@ -148,7 +150,7 @@
 			// 
 			// Del_Node_Button
 			// 
-			this.Del_Node_Button.Location = new System.Drawing.Point(143, 64);
+			this.Del_Node_Button.Location = new System.Drawing.Point(229, 63);
 			this.Del_Node_Button.Name = "Del_Node_Button";
 			this.Del_Node_Button.Size = new System.Drawing.Size(75, 23);
 			this.Del_Node_Button.TabIndex = 7;
@@ -158,7 +160,7 @@
 			// 
 			// Random_Button
 			// 
-			this.Random_Button.Location = new System.Drawing.Point(143, 8);
+			this.Random_Button.Location = new System.Drawing.Point(229, 11);
 			this.Random_Button.Name = "Random_Button";
 			this.Random_Button.Size = new System.Drawing.Size(75, 23);
 			this.Random_Button.TabIndex = 6;
@@ -168,7 +170,7 @@
 			// 
 			// Find_Button
 			// 
-			this.Find_Button.Location = new System.Drawing.Point(143, 35);
+			this.Find_Button.Location = new System.Drawing.Point(229, 37);
 			this.Find_Button.Name = "Find_Button";
 			this.Find_Button.Size = new System.Drawing.Size(75, 23);
 			this.Find_Button.TabIndex = 5;
@@ -194,7 +196,7 @@
 			this.Order_GroupBox.Controls.Add(this.NLR_Button);
 			this.Order_GroupBox.Controls.Add(this.LNR_Button);
 			this.Order_GroupBox.Controls.Add(this.LRN_Button);
-			this.Order_GroupBox.Location = new System.Drawing.Point(248, 532);
+			this.Order_GroupBox.Location = new System.Drawing.Point(350, 532);
 			this.Order_GroupBox.Name = "Order_GroupBox";
 			this.Order_GroupBox.Size = new System.Drawing.Size(88, 119);
 			this.Order_GroupBox.TabIndex = 6;
@@ -242,9 +244,9 @@
 			this.Info_GroupBox.Controls.Add(this.Intermediate_Node_Label);
 			this.Info_GroupBox.Controls.Add(this.Leaf_Node_Label);
 			this.Info_GroupBox.Controls.Add(this.Way_RichTextBox);
-			this.Info_GroupBox.Location = new System.Drawing.Point(342, 532);
+			this.Info_GroupBox.Location = new System.Drawing.Point(444, 532);
 			this.Info_GroupBox.Name = "Info_GroupBox";
-			this.Info_GroupBox.Size = new System.Drawing.Size(756, 119);
+			this.Info_GroupBox.Size = new System.Drawing.Size(654, 119);
 			this.Info_GroupBox.TabIndex = 8;
 			this.Info_GroupBox.TabStop = false;
 			this.Info_GroupBox.Text = "Info";
@@ -317,7 +319,7 @@
 			// 
 			this.Way_RichTextBox.Location = new System.Drawing.Point(176, 8);
 			this.Way_RichTextBox.Name = "Way_RichTextBox";
-			this.Way_RichTextBox.Size = new System.Drawing.Size(574, 105);
+			this.Way_RichTextBox.Size = new System.Drawing.Size(530, 105);
 			this.Way_RichTextBox.TabIndex = 3;
 			this.Way_RichTextBox.Text = " ";
 			// 
@@ -325,7 +327,7 @@
 			// 
 			this.Delete_ToolStripMenuItem.Image = global::Cay_Nhi_Phan.Properties.Resources.delete;
 			this.Delete_ToolStripMenuItem.Name = "Delete_ToolStripMenuItem";
-			this.Delete_ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+			this.Delete_ToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
 			this.Delete_ToolStripMenuItem.Text = "Delete";
 			this.Delete_ToolStripMenuItem.Click += new System.EventHandler(this.Delete_ToolStripMenuItem_Click);
 			// 
@@ -336,6 +338,16 @@
             this.Delete_ToolStripMenuItem});
 			this.Delete_ContextMenuStrip.Name = "Delete_ContextMenuStrip";
 			this.Delete_ContextMenuStrip.Size = new System.Drawing.Size(110, 30);
+			// 
+			// Compare_CheckBox
+			// 
+			this.Compare_CheckBox.AutoSize = true;
+			this.Compare_CheckBox.Location = new System.Drawing.Point(119, 17);
+			this.Compare_CheckBox.Name = "Compare_CheckBox";
+			this.Compare_CheckBox.Size = new System.Drawing.Size(104, 17);
+			this.Compare_CheckBox.TabIndex = 9;
+			this.Compare_CheckBox.Text = "Compare 2 node";
+			this.Compare_CheckBox.UseVisualStyleBackColor = true;
 			// 
 			// AVLTree_Form
 			// 
@@ -391,6 +403,7 @@
 		private System.Windows.Forms.RichTextBox Way_RichTextBox;
 		private System.Windows.Forms.ToolStripMenuItem Delete_ToolStripMenuItem;
 		private System.Windows.Forms.ContextMenuStrip Delete_ContextMenuStrip;
+		private System.Windows.Forms.CheckBox Compare_CheckBox;
 	}
 }
 
