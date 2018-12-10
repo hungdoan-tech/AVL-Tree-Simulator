@@ -382,7 +382,7 @@ namespace Cay_Nhi_Phan
 			{
 				Speed_ComboBox.Text = "2";
 			}
-			Speed = ((20+Temp) - Convert.ToInt32(Speed_ComboBox.Text)) * (int)(10/Temp);
+			Speed = (5 - Convert.ToInt32(Speed_ComboBox.Text)) * (int)(10);
 		}
 		
 		private void ShowTextBox(class_node node)
@@ -906,7 +906,7 @@ namespace Cay_Nhi_Phan
 				g.Clear(Color.White);
 				VeCay_normal(Root);
 				DrawDelete(node);
-				Way_RichTextBox.AppendText("Xoa thanh cong node \n" + Node_Temp.number);
+				Way_RichTextBox.AppendText("Xoa thanh cong node " + Node_Temp.number+ "\n");
 				MessageBox.Show("Xoa thanh cong");
 
 				//Root->info = x
